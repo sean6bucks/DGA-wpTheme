@@ -33,6 +33,9 @@ body {
 	font:300 11px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color:#444;
 }
+main {
+	margin-bottom: 20px;
+}
 /* clear */
 .clear:before,
 .clear:after {
@@ -69,46 +72,191 @@ input:focus {
 	border:1px solid #04A4CC;
 }
 
+hr { 
+	border: 0; 
+	height: 1px; 
+	width: 90%;
+	max-width: 1140px;
+	background-image: -webkit-linear-gradient(left, #fff, #666, #fff);
+	background-image: -moz-linear-gradient(left, #fff, #666, #fff);
+	background-image: -ms-linear-gradient(left, #fff, #666, #fff);
+	background-image: -o-linear-gradient(left, #fff, #666, #fff); 
+}
+
 /*------------------------------------*\
     STRUCTURE
 \*------------------------------------*/
 
 /* wrapper */
 .wrapper {
-	max-width:1280px;
-	width:95%;
+	width:100%;
 	margin:0 auto;
 	position:relative;
 }
-/* header */
-.header {
 
+.content-wrapper:before,
+.content-wrapper:after {
+    content:' ';
+    display:table;
+}
+
+.content-wrapper:after {
+    clear:both;
+}
+.content-wrapper {
+	width: 100%;
+	max-width: 1140px;
+	margin: 0 auto;
+	*zoom:1;
+}
+
+.input-group {
+	display: inline-block;
+}
+
+/*------------------------------------*\
+    HEADER
+\*------------------------------------*/
+.header {
+	background: #8e0101;
 }
 /* logo */
 .logo {
 
 }
-.logo-img {
-
+.header-img, 
+.header .wp-post-image {
+	width: 100%;
 }
 /* nav */
 .nav {
-
+	height: 50px;
 }
-/* sidebar */
-.sidebar {
 
+.nav .nav-title a,
+.nav .nav-list .nav-item a{
+	color: #fff;
+	font-family: 'Oswald', Helvetica, Arial, sans-serif;
+	font-weight: light;
 }
-/* footer */
+
+.nav .nav-title {
+	float: left;
+	margin-left: 20px;
+}
+.nav .nav-title a {
+	text-decoration: none;
+	font-size: 30px;
+	vertical-align: middle;
+	line-height: 50px
+}
+
+.nav .nav-list {
+	list-style: none;
+	float: right;
+	text-align: center;
+}
+.nav .nav-list .nav-item {
+	display: inline;
+	padding: 0 10px;
+	font-size: 16px;
+	line-height: 25px;
+}
+
+/*------------------------------------*\
+    FOOTER
+\*------------------------------------*/
+
 .footer {
+	color: #fff;
+	background-color: #8e0101; 
+}
 
+.footer .content-wrapper {
+	margin: 0 auto;
+}
+
+.footer .company-info,
+.footer .copyright,
+.footer .social-media-icons {
+	display: inline-block;
+	float: left;
+}
+
+.footer .company-info,
+.footer .social-media-icons {
+	width: 40%;
+}
+
+.footer .company-info {
+	font-size: 14px;
+	padding-left: 50px;
+}
+
+.footer .company-info ul,
+.footer .social-media-icons ul {
+	list-style: none;
+	padding: 0;
+}
+
+.footer .company-info ul li i.fa {
+	margin-right: 10px;
+	text-align: center;
+	width: 15px;
+}
+
+.footer .social-media-icons {
+	padding-right: 50px;
+}
+.footer .social-media-icons ul {
+	height: 70px;
+	margin: 0;
+	float: right;
+}
+
+.footer .social-media-icons li {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	margin: 25px 7px;
+	border-radius: 50%;
+	background-color: #fff;
+	text-align: center;
+}
+
+.footer .social-media-icons li i.fa {
+	font-size: 24px;
+	line-height: 35px;
+	color: #8e0101;
+}
+.footer .social-media-icons .wechat-info {
+	background-color: transparent;
+	width: 125px;
+	height: 70px;
+	margin: 0;
+}
+.footer .social-media-icons .wechat-info i.fa-wechat {
+	color: #fff;
+	margin: 25px 7px 25px 14px;
+}
+.footer .social-media-icons .wechat-info img {
+	height: 75px;
+	width: 75px;
+	margin: 5px 0;
+}
+
+.footer .copyright {
+	width: 20%;
+	text-align: center;
+	padding: 60px 0 10px 0;
+	margin: 0;
 }
 
 /*------------------------------------*\
     PAGES
 \*------------------------------------*/
 
-
+/* PAGE SPECIFIC CSS IS HANDLED IN CSS FILES FOUND IN THE CSS FOLDER*/
 
 /*------------------------------------*\
     IMAGES
@@ -119,16 +267,58 @@ input:focus {
 /*------------------------------------*\
 	TYPOGRAPHY
 \*------------------------------------*/
-
 @font-face {
-	font-family:'Font-Name';
-	src:url('fonts/font-name.eot');
-	src:url('fonts/font-name.eot?#iefix') format('embedded-opentype'),
-		url('fonts/font-name.woff') format('woff'),
-		url('fonts/font-name.ttf') format('truetype'),
-		url('fonts/font-name.svg#font-name') format('svg');
+	font-family:'Oswald-ExtraLight';
+	src:url('fonts/Oswald-ExtraLight.ttf') format('truetype');
     font-weight:normal;
     font-style:normal;
+}
+@font-face {
+	font-family:'Oswald-Light';
+	src:url('fonts/Oswald-Light.ttf') format('truetype');
+    font-weight:normal;
+    font-style:normal;
+}
+@font-face {
+	font-family:'Oswald';
+	src:url('fonts/Oswald-Regular.ttf') format('truetype');
+    font-weight:normal;
+    font-style:normal;
+}
+
+@font-face {
+	font-family:'Oswald-Medium';
+	src:url('fonts/Oswald-Medium.ttf') format('truetype');
+    font-weight:normal;
+    font-style:normal;
+}
+@font-face {
+	font-family:'BabasNeue-Regular';
+	src:url('fonts/BebasNeue_Regular.woff') format('woff');
+    font-weight:normal;
+    font-style:normal;
+}
+h4 {
+	font-family: 'Oswald-ExtraLight', Helvetica, Arial, sans-serif;
+	font-size: 24px;
+	color: #999;
+	margin: 0;
+}
+
+h3 {
+	font-family: 'Oswald-Light', Helvetica, Arial, sans-serif;
+	font-size: 38px;
+	color: #666;
+	font-weight: light;
+	margin: 0;
+}
+
+h2 {
+	font-family: 'Oswald', Helvetica, Arial, sans-serif;
+	font-size: 45px;
+	color: #666;
+	font-weight: normal;
+	margin: 0;
 }
 
 /*------------------------------------*\

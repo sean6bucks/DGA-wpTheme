@@ -1,13 +1,28 @@
 			<!-- footer -->
 			<footer class="footer" role="contentinfo">
-
-				<!-- copyright -->
-				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
-				</p>
-				<!-- /copyright -->
-
+				<div class="content-wrapper">
+					<div class="company-info">
+						<ul>
+							<li><i class="fa fa-phone"></i>(+86) 21 6051 7886</li>
+							<li><i class="fa fa-envelope"></i>info@dragongroup.asia</li>
+							<li><i class="fa fa-map-marker"></i>18A, 121 Jiangsu Lu Shanghai, China</li>
+						</ul>
+					</div><!--
+				 --><p class="copyright">
+						&copy; <?php echo date('Y'); ?>Copyright Dragon Group Asia.</a>
+					</p><!--
+				 --><div class="social-media-icons">
+						<ul>
+							<li><a href="https://www.facebook.com/DragonGroupAsia/"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://www.linkedin.com/company/2883410"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="https://www.instagram.com/dragongroupasia/"><i class="fa fa-instagram"></i></a></li>
+							<li class="wechat-info">
+								<i class="fa fa-wechat"></i><!--
+								--><img src="<?php echo get_template_directory_uri(); ?>/img/temp_img/wechat-qr.jpg"
+							</li>
+						</ul>
+					</div>
+				</div>
 			</footer>
 			<!-- /footer -->
 

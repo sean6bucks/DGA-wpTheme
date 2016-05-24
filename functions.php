@@ -98,6 +98,9 @@ function html5blank_header_scripts()
         wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
+        wp_register_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), false, 'all'); // Custom scripts
+        wp_enqueue_script('bootstrap-js'); // Enqueue it!
+
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
     }
@@ -115,11 +118,22 @@ function html5blank_conditional_scripts()
 // Load HTML5 Blank styles
 function html5blank_styles()
 {
+
     wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
     wp_enqueue_style('normalize'); // Enqueue it!
 
-    wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
+    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), false, 'all' );
+	wp_enqueue_style('bootstrap');
+
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/fonts/font-awesome/css/font-awesome.min.css', array(), false, 'all' );
+	wp_enqueue_style('awesome');
+
+	wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
+	
+	wp_enqueue_style( 'index-style', get_template_directory_uri() . '/css/index.css', array(), false, 'all' );
+	wp_enqueue_style('index-style');
+
 }
 
 // Register HTML5 Blank Navigation
@@ -251,7 +265,7 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 function html5_blank_view_article($more)
 {
     global $post;
-    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+    return '... <br> <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('Continue Reading', 'html5blank') . '</a>';
 }
 
 // Remove Admin bar
@@ -304,6 +318,7 @@ function html5blankcomments($comment, $args, $depth)
 		$tag = 'li';
 		$add_below = 'div-comment';
 	}
+
 ?>
     <!-- heads up: starting < for the html tag (li or div) in the next line: -->
     <<?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
@@ -334,6 +349,44 @@ function html5blankcomments($comment, $args, $depth)
 	</div>
 	<?php endif; ?>
 <?php }
+
+/*------------------------------------*\
+	Custom ADDED Functions
+\*------------------------------------*/
+
+// Grab most popular posts
+function dga_get_top_posts(){
+	$popularpost = new WP_Query( array( 'posts_per_page' => 6, 'meta_key' => 'dga_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) );
+	return $popularpost;
+}
+
+// Set new view count for post when loaded
+function dga_set_post_views($postID) {
+	$count_key = 'dga_post_views_count';
+	$count = get_post_meta($postID, $count_key, true);
+	if($count==''){
+	    $count = 0;
+	    delete_post_meta($postID, $count_key);
+	    add_post_meta($postID, $count_key, '0');
+	}else{
+	    $count++;
+	    update_post_meta($postID, $count_key, $count);
+	}
+}
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+// Get view count
+function dga_get_post_views($postID){
+    $count_key = 'dga_post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0";
+    }
+    return $count;
+}
+
 
 /*------------------------------------*\
 	Actions + Filters + ShortCodes

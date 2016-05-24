@@ -4,7 +4,9 @@
 	<!-- section -->
 	<section>
 
-	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+	<?php if (have_posts()): while (have_posts()) : the_post(); 
+			// UPDATE VIEW COUNT
+			dga_set_post_views(get_the_ID()); ?>
 
 		<!-- article -->
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

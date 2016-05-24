@@ -32,17 +32,34 @@
 			<header class="header clear" role="banner">
 
 					<!-- logo -->
+				<?php if (is_home()): ?>
 					<div class="logo">
-						<a href="<?php echo home_url(); ?>">
-							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
-						</a>
+						<!-- <img src="<?php echo get_template_directory_uri(); ?>/img/headline-home.jpg" alt="Dragon Group Asia Header image" class="header-img"> -->
+						<?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
+							<?php the_post_thumbnail(); // Declare pixel size you need inside the array ?>
+						<?php endif; ?>
 					</div>
+				<?php else: ?>
+					<div class="header-jumbotron">
+						<?php the_post_thumbnail('full'); ?>
+					</div>
+				<?php endif; ?>
 					<!-- /logo -->
 
 					<!-- nav -->
-					<nav class="nav" role="navigation">
-						<?php html5blank_nav(); ?>
+					<nav class="nav content-wrapper" role="navigation">
+						
+						<div class="nav-title">
+							<a href="<?php echo home_url() ?>">DRAGON GROUP ASIA</a>
+						</div>
+
+						<ul class="nav-list">
+							<li class="nav-item"><a href="">ABOUT US</a></li>
+							<li class="nav-item"><a href="">CASE STUDIES</a></li>
+							<li class="nav-item"><a href="">BLOG</a></li>
+							<li class="nav-item"><a href="">DRAGON ADVENTURES</a></li>
+						</ul>
+
 					</nav>
 					<!-- /nav -->
 
