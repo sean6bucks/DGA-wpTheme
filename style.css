@@ -33,9 +33,7 @@ body {
 	font:300 11px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color:#444;
 }
-main {
-	margin-bottom: 20px;
-}
+
 /* clear */
 .clear:before,
 .clear:after {
@@ -59,28 +57,35 @@ a {
 }
 a:hover {
 	color:#444;
+	text-decoration: none;
 }
 a:focus {
+	color:#666;
 	outline:0;
+	text-decoration: none;
 }
 a:hover,
 a:active {
 	outline:0;
+	text-decoration: none;
 }
 input:focus {
 	outline:0;
 	border:1px solid #04A4CC;
 }
 
+ul {
+	margin: 0;
+}
+
 hr { 
 	border: 0; 
 	height: 1px; 
-	width: 90%;
-	max-width: 1140px;
-	background-image: -webkit-linear-gradient(left, #fff, #666, #fff);
-	background-image: -moz-linear-gradient(left, #fff, #666, #fff);
-	background-image: -ms-linear-gradient(left, #fff, #666, #fff);
-	background-image: -o-linear-gradient(left, #fff, #666, #fff); 
+	width: 100%;
+	background-image: -webkit-linear-gradient(left, #fff, #E6E6E6, #fff);
+	background-image: -moz-linear-gradient(left, #fff, #E6E6E6, #fff);
+	background-image: -ms-linear-gradient(left, #fff, #E6E6E6, #fff);
+	background-image: -o-linear-gradient(left, #fff, #E6E6E6, #fff); 
 }
 
 /*------------------------------------*\
@@ -105,7 +110,7 @@ hr {
 }
 .content-wrapper {
 	width: 100%;
-	max-width: 1140px;
+	max-width: 1280px;
 	margin: 0 auto;
 	*zoom:1;
 }
@@ -114,53 +119,105 @@ hr {
 	display: inline-block;
 }
 
+.btn.btn-dg,
+.btn.btn-dg:active,
+.btn.btn-dg:visited{
+	color: #8e0101;
+	background-color: #fff;
+	border-color: #8e0101;
+	font-family: 'Oswald';
+}
+.btn.btn-dg:hover {
+	color: #fff;
+	background-color: #8e0101;
+}
+.btn.btn-dg:focus {
+	color: #fff;
+	background-color: #560101;
+	border-color: transparent;
+	outline: none;
+}
+
 /*------------------------------------*\
     HEADER
 \*------------------------------------*/
-.header {
-	background: #8e0101;
-}
-/* logo */
-.logo {
 
-}
-.header-img, 
-.header .wp-post-image {
-	width: 100%;
-}
 /* nav */
 .nav {
-	height: 50px;
-}
-
-.nav .nav-title a,
-.nav .nav-list .nav-item a{
-	color: #fff;
-	font-family: 'Oswald', Helvetica, Arial, sans-serif;
-	font-weight: light;
+	background: #8e0101;
+	width: 100%;
+	z-index: 50;
 }
 
 .nav .nav-title {
 	float: left;
 	margin-left: 20px;
+	margin: 10px 15px;
 }
-.nav .nav-title a {
-	text-decoration: none;
-	font-size: 30px;
-	vertical-align: middle;
-	line-height: 50px
+
+.nav .logo-full {
+	height: 70px;
 }
 
 .nav .nav-list {
 	list-style: none;
 	float: right;
 	text-align: center;
+	margin-right: 10px;
 }
 .nav .nav-list .nav-item {
 	display: inline;
+	padding: 0 15px;
+	font-size: 20px;
+	line-height: 90px;
+	position: relative;
+}
+
+.nav .nav-list .nav-item a{
+	color: #fff;
+	font-family: 'Oswald', Helvetica, Arial, sans-serif;
+}
+.nav .nav-list .nav-item a:hover{
+	color: #E6E6E6;
+}
+
+.nav .nav-list .nav-item .dropdown-content {
+	display: none;
+	position: absolute;
+	top: 57px;
+	left: 0;
+	background-color: #E6E6E6; 
+	width: 100%;
+}
+
+.nav .nav-list .nav-item .dropdown-content a {
+	display: block;
+}
+
+
+/* FIXED NAV */
+.nav.fixed-nav {
+	display: none;
+	height: 56px;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.nav.fixed-nav .nav-title {
+	float: left;
+	margin-left: 20px;
+	margin: 4px 15px;
+}
+
+.nav.fixed-nav .logo {
+	height: 48px;
+}
+
+.nav.fixed-nav .nav-list .nav-item {
+	display: inline;
 	padding: 0 10px;
 	font-size: 16px;
-	line-height: 25px;
+	line-height: 56px;
 }
 
 /*------------------------------------*\
@@ -168,6 +225,7 @@ hr {
 \*------------------------------------*/
 
 .footer {
+	height: 120px;
 	color: #fff;
 	background-color: #8e0101; 
 }
@@ -185,18 +243,25 @@ hr {
 
 .footer .company-info,
 .footer .social-media-icons {
-	width: 40%;
+	width: 50%;
 }
 
 .footer .company-info {
+	float: left;
 	font-size: 14px;
-	padding-left: 50px;
+	padding-left: 25px;
+	margin: 15px 0;
 }
 
 .footer .company-info ul,
 .footer .social-media-icons ul {
 	list-style: none;
 	padding: 0;
+}
+
+.footer .company-info ul li {
+	height: 30px;
+	padding: 5px 0;
 }
 
 .footer .company-info ul li i.fa {
@@ -206,19 +271,21 @@ hr {
 }
 
 .footer .social-media-icons {
-	padding-right: 50px;
+	float: right;
+	padding-right: 25px;
+	margin: 10px 0;
+	text-align: right;
 }
 .footer .social-media-icons ul {
-	height: 70px;
-	margin: 0;
-	float: right;
+	display: inline-block;
+	margin: 32px 0;
 }
 
 .footer .social-media-icons li {
 	display: inline-block;
-	width: 35px;
-	height: 35px;
-	margin: 25px 7px;
+	width: 36px;
+	height: 36px;
+	margin: 0 10px;
 	border-radius: 50%;
 	background-color: #fff;
 	text-align: center;
@@ -226,30 +293,22 @@ hr {
 
 .footer .social-media-icons li i.fa {
 	font-size: 24px;
-	line-height: 35px;
+	line-height: 36px;
 	color: #8e0101;
 }
-.footer .social-media-icons .wechat-info {
-	background-color: transparent;
-	width: 125px;
-	height: 70px;
-	margin: 0;
-}
-.footer .social-media-icons .wechat-info i.fa-wechat {
-	color: #fff;
-	margin: 25px 7px 25px 14px;
-}
-.footer .social-media-icons .wechat-info img {
-	height: 75px;
-	width: 75px;
-	margin: 5px 0;
+
+.footer .social-media-icons .wechat-code {
+	height: 100px;
+	width: 100px;
+	margin-left: 15px;
 }
 
 .footer .copyright {
-	width: 20%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 	text-align: center;
-	padding: 60px 0 10px 0;
-	margin: 0;
+	width: 100%;
 }
 
 /*------------------------------------*\
@@ -298,27 +357,63 @@ hr {
     font-weight:normal;
     font-style:normal;
 }
+@font-face {
+	font-family:'BabasNeue';
+	src:url('fonts/BebasNeue-webfont.woff') format('woff');
+    font-weight:normal;
+    font-style:normal;
+}
+
+h5 {
+	font-family: 'Oswald', Helvetica, Arial, sans-serif;
+	font-size: 24px;
+	color: #666;
+	margin: 0;
+}
+
 h4 {
 	font-family: 'Oswald-ExtraLight', Helvetica, Arial, sans-serif;
 	font-size: 24px;
-	color: #999;
+	color: #666;
 	margin: 0;
 }
 
 h3 {
 	font-family: 'Oswald-Light', Helvetica, Arial, sans-serif;
 	font-size: 38px;
-	color: #666;
-	font-weight: light;
+	color: #444;
 	margin: 0;
 }
 
 h2 {
 	font-family: 'Oswald', Helvetica, Arial, sans-serif;
 	font-size: 45px;
-	color: #666;
+	color: #444;
 	font-weight: normal;
 	margin: 0;
+}
+
+p {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	line-height: 18px
+}
+
+section {
+	padding: 75px 0;
+	clear: both;
+}
+
+.section-headline {
+	text-align: center;
+	margin-bottom: 50px;
+}
+.section-subtext {
+	text-align: center;
+	margin-bottom: 15px;
+}
+.section-headline + .section-subtext {
+	margin-top: -25px;
 }
 
 /*------------------------------------*\

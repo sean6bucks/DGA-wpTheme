@@ -7,20 +7,17 @@
 							<li><i class="fa fa-envelope"></i>info@dragongroup.asia</li>
 							<li><i class="fa fa-map-marker"></i>18A, 121 Jiangsu Lu Shanghai, China</li>
 						</ul>
-					</div><!--
-				 --><p class="copyright">
-						&copy; <?php echo date('Y'); ?>Copyright Dragon Group Asia.</a>
-					</p><!--
-				 --><div class="social-media-icons">
+					</div>
+				 	<div class="social-media-icons">
 						<ul>
 							<li><a href="https://www.facebook.com/DragonGroupAsia/"><i class="fa fa-facebook"></i></a></li>
 							<li><a href="https://www.linkedin.com/company/2883410"><i class="fa fa-linkedin"></i></a></li>
 							<li><a href="https://www.instagram.com/dragongroupasia/"><i class="fa fa-instagram"></i></a></li>
-							<li class="wechat-info">
-								<i class="fa fa-wechat"></i><!--
-								--><img src="<?php echo get_template_directory_uri(); ?>/img/temp_img/wechat-qr.jpg"
-							</li>
 						</ul>
+						<img class="wechat-code" src="<?php echo get_template_directory_uri(); ?>/img/icons/DGA_QRcode.jpg">
+					</div>
+					<div class="copyright">
+						<p>&copy; <?php echo date('Y'); ?>Copyright Dragon Group Asia.</p>
 					</div>
 				</div>
 			</footer>

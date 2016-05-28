@@ -133,6 +133,9 @@ function html5blank_styles()
 	
 	wp_enqueue_style( 'index-style', get_template_directory_uri() . '/css/index.css', array(), false, 'all' );
 	wp_enqueue_style('index-style');
+	
+	wp_enqueue_style( 'about-us-style', get_template_directory_uri() . '/css/about-us.css', array(), false, 'all' );
+	wp_enqueue_style('about-us-style');
 
 }
 
@@ -265,7 +268,7 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 function html5_blank_view_article($more)
 {
     global $post;
-    return '... <br> <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('Continue Reading', 'html5blank') . '</a>';
+    return '... <br> <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('Continue Reading...', 'html5blank') . '</a>';
 }
 
 // Remove Admin bar

@@ -1,18 +1,132 @@
-.index-section {
-	padding: 50px 0;
+/*Laoding Spinner*/
+#index-header .load-shade {
+	min-height: 100%;
+	min-width: 100%;
+	width: 100%;
+	height: auto;
+	position: fixed;
+	background-color: #000;
+	top: 0;
+	left: 0;
+	text-align: center;
+	display: table;
+	z-index: 1000;
 }
 
-.section-headline {
+#index-header .load-shade .spin-wrapper {
+	display: table-cell;
 	text-align: center;
+	vertical-align: middle;
+}
+#index-header .load-shade .spin-wrapper i.fa {
+	color: #222;
+	font-size: 50px;
+}
+
+#index-header .header-jumbotron {
+	width: 100%;
+	height: 700px;
+	background-position:50% 50%;
+    background-size: cover;
+}
+
+
+/*------- COMPANY INFO ----------*/
+/*-------------------------------*/
+#company-information {
+	background-position:50% 50%;
+    background-size: cover;
+}
+#company-information .section-headline {
 	margin-bottom: 30px;
 }
-.section-subtext {
+
+#company-information .company-tagline {
+	width: 66%;
+	margin: 150px 0;
+	float: left;
+	display: inline-block;
+}
+
+#company-information .company-tagline .section-textblock {
 	text-align: center;
-	margin-bottom: 15px;
+	width: 80%;
+	font-size: 18px;
+	line-height: 32px;
+	margin: 0 auto;
 }
-.section-headline + .section-subtext {
-	margin-top: -25px;
+
+#company-information .home-contact-form {
+	width: 32%;
+	margin: 0 1%;
+	padding: 0 10px;
+	float: right;
+	background-color: rgba(255,255,255,0.8);
+	border-radius: 5px;
 }
+
+#company-information .home-contact-form h4 {
+	text-align: center;
+	margin: 10px;
+	font-size: 32px;
+}
+
+#company-information .home-contact-form .half-width {
+	width: 50%;
+	float: left;
+}
+
+#company-information .home-contact-form .half-width:nth-child(even) {
+	padding-right: 5px;
+}
+
+#company-information .home-contact-form .half-width:nth-child(odd) {
+	padding-left: 5px;
+}
+
+#company-information .home-contact-form textarea {
+	resize: none;
+}
+
+#company-information .home-contact-form .btn {
+	width: 100px;
+	font-weight: bold;
+	background-color: #8e0101;
+	border-color: #8e0101;
+}
+
+/*----------- SERVICES ----------*/
+/*-------------------------------*/
+
+#company-services {
+	text-align: center;
+}
+
+#company-services .services-row {
+	padding: 0 50px;
+}
+#company-services .services-row:nth-child(2) {
+	margin-bottom: 50px;
+}
+
+#company-services .service-item img {
+	margin-bottom: 10px;
+	height: 75px;
+	width: 75px;
+}
+
+#company-services .service-item .service-headline {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+#company-services .service-item .section-textblock {
+	text-align: center;
+	width: 200px;
+	margin: 0 auto;
+}
+
+
 
 /*----- CASE STUDY PREVIEWS -----*/
 /*-------------------------------*/
@@ -35,13 +149,15 @@
 	float: left;
 	width: 33%;
 }
-
+#case-study-previews .case-study-preview * {
+	cursor: pointer !important;
+}
 #case-study-previews .case-study-preview {
 	width: 300px;
-	height: 400px;
+	height: 500px;
 	margin: 0 auto;
-	padding: 10px;
 	display: block;
+	background-color: #fff;
 	border-radius: 5px;
 	-webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.5);
 	   -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.5);
@@ -49,9 +165,10 @@
 }
 
 #case-study-previews .case-study-preview .case-preview-img {
-	width:  280px;
-	height: 300px;
+	width:  300px;
+	height: 320px;
 	margin-bottom: 10px; 
+	border-radius: 5px 5px 0 0;
     background-position:50% 50%;
     background-size: cover;
 }
@@ -67,9 +184,12 @@
 }
 
 #case-study-previews .case-study-preview p {
-	width: 280px;
-	font-size: 18px;
-	line-height: 20px;
+	text-align: center;
+	width: 100%;
+	height: 110px;
+	padding: 15px;
+	font-size: 16px;
+	line-height: 22px;
 	margin: 0;
 }
 
@@ -86,25 +206,29 @@
 #blog-preview {
 	width: 70%;
 	margin: 0;
+	padding: 0 1% 0 2%;
 	float: left;
 	display: inline-block;
+	border-right: 1px solid #E6E6E6;
 }
 
 #blog-preview .post-preview {
-    width: 30%;
-    margin: 0 1.5% 20px 1.5%;
+    width: 32%;
+    margin: 0 0 20px 0;
     display: inline-block;
     float: left;
     overflow: hidden;
 }
 
+#blog-preview .post-preview:nth-child(3),
+#blog-preview .post-preview:nth-child(6) {
+	margin: 0 2% 20px 2%;
+}
+
 #blog-preview .article-preview-image {
     height: 200px;
-    background-position: center center; 
-	 -webkit-background-size: cover;
-	  	-moz-background-size: cover;
-	 	  -o-background-size: cover;
-	 		 background-size: cover;
+    background-position:50% 50%;
+    background-size: cover;
 }
 
 #blog-preview .article-preview-body {
@@ -132,27 +256,21 @@
     line-height: 12px;
 }
 
+#blog-preview .view-article{
+	text-decoration: underline;
+}
+
 /* IG PREVIEW */
 
 #ig-preview {
-	width: 28%;
-	margin: 0 1%;
-	padding-bottom: 5px;
-	display: inline-block;
-	border-radius: 5px;
-	-webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.5);
-	   -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.5);
-		    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.5);
-	
+	width: 30%;
+	padding: 0 2% 0 1%;
+	display: inline-block;	
 }
 
 #ig-preview .section-headline {
-	color: #fff;
-	background: #8e0101;
-	margin: 0;
-	padding: 10px;
-	font-family: 'Oswald-ExtraLight';
-	border-radius: 5px 5px 0 0;
+	margin-bottom: 28px;
+	font-family: 'Oswald-ExtraLight'
 }
 
 #ig-preview .wdi_pagination * {

@@ -1,0 +1,103 @@
+#our-story {
+	padding: 150px 50px;
+}
+
+#our-story .section-headline {
+	margin-top: 20px;
+}
+
+#our-story .section-textblock {
+	text-indent: 50px;
+	width: 70%;
+	font-size: 18px;
+	line-height: 32px;
+	margin: 0 auto;
+}
+
+#mission-values {
+	padding: 150px 50px;
+}
+
+#mission-values .about-info {
+	padding: 0 6%;
+}
+
+#mission-values .about-info .info-headline {
+	margin-bottom: 25px;
+	font-size: 30px
+}
+
+#mission-values .about-info .section-textblock {
+	text-align: center;
+	font-size: 14px;
+}
+
+#our-team {
+	padding: 75px 50px;
+}
+
+#our-team .section-headline {
+	margin-bottom: 75px;
+}
+
+#our-team .company-bios {
+	margin: 0 auto;
+	max-width: 960px;
+}
+
+#our-team .company-bios .bio-item {
+	padding: 0 15px 30px 15px;
+	display: inline-block;
+	max-width: 250px;
+}
+
+#our-team .company-bios .bio-item .bio-img {
+	background-position:50% 50%;
+    background-size: cover;
+    position: relative;
+    margin: 0 auto;
+	height: 250px;
+	width: 200px;
+}
+
+#our-team .company-bios .bio-item .bio-info {
+	width: 100%;
+	padding-left: 10px; 
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5)
+}
+
+#our-team .company-bios .bio-item .bio-name {
+	color: #ffffff;
+	margin-top: 5px;
+}
+
+#our-team .company-bios .bio-item .bio-job {
+	color: #E6E6E6;
+	margin-bottom: 5px;
+}
+
+#careers {
+	padding: 75px 50px;
+}
+#careers .jobs-list {
+	margin: 0 50px;
+}
+
+#careers .jobs-list .job-item .panel-heading p {
+	margin: 0;
+}
+
+#careers .jobs-list .job-item .panel-body .full-description {
+	margin-bottom: 30px;
+}
+
+#careers .jobs-list .job-item .panel-body .apply-btn {
+	width: 300px;
+	margin: 10px auto;
+}
+
+
+
