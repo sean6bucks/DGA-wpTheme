@@ -131,11 +131,18 @@ function html5blank_styles()
 	wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
 	
+	// CUSTOM CSS
 	wp_enqueue_style( 'index-style', get_template_directory_uri() . '/css/index.css', array(), false, 'all' );
 	wp_enqueue_style('index-style');
-	
+
 	wp_enqueue_style( 'about-us-style', get_template_directory_uri() . '/css/about-us.css', array(), false, 'all' );
 	wp_enqueue_style('about-us-style');
+
+	wp_enqueue_style( 'case-studies-style', get_template_directory_uri() . '/css/case-studies.css', array(), false, 'all' );
+	wp_enqueue_style('case-studies-style');
+
+	wp_enqueue_style( 'blog-style', get_template_directory_uri() . '/css/blog.css', array(), false, 'all' );
+	wp_enqueue_style('blog-style');
 
 }
 
@@ -304,6 +311,24 @@ function enable_threaded_comments()
     if (!is_admin()) {
         if (is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
             wp_enqueue_script('comment-reply');
+        }
+    }
+}
+
+function exclude_post_categories($excl=''){
+    $categories = get_the_category($post->ID);
+    if(!empty($categories)){
+        $exclude=$excl;
+        $exclude = explode(",", $exclude);
+        foreach ($categories as $cat) {
+            $html = '';
+            if(!in_array($cat->cat_ID, $exclude)) {
+                $html .= '<a href="' . get_category_link($cat->cat_ID) . '" ';
+                $html .= 'title="' . $cat->cat_name . '">' . $cat->cat_name . '</a>';
+                if ( $cat != $categories[(count($categories) -1)] )
+                    $html .= ', ';
+                echo $html;
+            }
         }
     }
 }

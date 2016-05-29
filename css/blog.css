@@ -1,0 +1,117 @@
+#blog-posts .latest-posts {
+	vertical-align: top;
+	display: inline-block;
+	width: 75%;
+	margin: 0 auto;
+	border-right: 1px solid #ddd;
+}
+
+#blog-posts .latest-posts .posts-wrapper .post{
+	width: 98%;
+	max-width: 800px;
+	margin: 0 auto 30px auto;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+#blog-posts .posts-wrapper .post .preview-image {
+	display: inline-block;
+	vertical-align: top;
+    height: 220px;
+    width: 350px;
+    margin: 15px 15px 15px 0;
+    border-radius: 2px;
+    background-position:50% 50%;
+    background-size: cover;
+}
+
+#blog-posts .posts-wrapper .post .preview-body {
+	display: inline-block;
+	height: 220px;
+	width: 48%;
+	margin: 15px 0;
+	padding-right: 5px;
+	position: relative;
+}
+
+#blog-posts .post .preview-body .post-categories {
+	font-size: 20px;
+	margin-bottom: 5px;
+	color:#8e0101;
+}
+#blog-posts .post .preview-body .post-categories a{
+	color:#8e0101;
+}
+
+#blog-posts .post .preview-body .preview-headline {
+	color: #444;
+	font-size: 30px;
+	font-family: 'Oswald';
+	line-height: 30px; 
+}
+
+#blog-posts .posts-wrapper .post .preview-image:hover+.preview-body .preview-headline,
+#blog-posts .post .preview-body .preview-headline:hover,
+#blog-posts .post .preview-body .view-article:hover {
+	text-decoration: underline;
+}
+
+#blog-posts .post .preview-body .date {
+	color: #999;
+}
+
+#blog-posts .post .preview-body .view-article {
+	line-height: 30px;
+	font-weight: bold;
+}
+
+#blog-posts .post .preview-body .post-tags {
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+	font-weight: bold;
+}
+
+#blog-posts .post .preview-body .post-tags a {
+	font-size: 14px;
+	font-weight: normal;
+	font-style: italic;
+}
+#blog-posts .post .preview-body .post-tags a:hover {
+	text-decoration: underline;
+}
+
+/* Sidebar */
+
+#blog-posts .blog-sidebar {
+	float: right;
+	width: 25%;
+	margin-top: 30px;
+}
+#blog-posts .blog-sidebar .section-headline {
+	margin-bottom: 20px;
+}
+
+#blog-posts .blog-sidebar .sidebar-list {
+	width: 100%;
+	list-style: none;
+	margin-bottom: 40px;
+	padding: 0;
+	text-align: center;
+}
+
+#blog-posts .blog-sidebar .sidebar-list li {
+	font-family: 'Oswald-ExtraLight';
+	font-size: 30px;
+}
+
+#blog-posts .blog-sidebar .sidebar-list li a {
+	color: #8e0101;
+}
+#blog-posts .blog-sidebar .sidebar-list li a:hover {
+	text-decoration: underline;
+}
+
+#blog-posts .blog-sidebar #ig-feed {
+	width: 100%;
+}

@@ -1,4 +1,4 @@
-<section id="company-information" class="index-section" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/temp_img/socialmedia-jumbo.jpg'">
+<section id="company-information" class="index-section" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/temp_img/socialmedia-jumbo_bw.jpg'">
 	<div class="content-wrapper">
 		<div class="company-tagline">
 			<h2 class="section-headline"><?php echo get_post_meta( get_the_ID(), 'company_tagline', true ) ?> </h2>
@@ -98,38 +98,32 @@
 <section id="case-study-previews" class="index-section">
 	<div class="content-wrapper">
 		<h3 class="section-headline">CASE STUDIES</h3>
-		<ul class="clear">
-			<li>
-				<a href="/clients#nfl" class="case-study-preview">
-					<div class="case-preview-img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/temp_img/nfl-preview.jpg'"></div>
-					<h4 class="case-preview-name">NFL</h4>
-					<p class="case-preview-snippet">Branding, Promotions, and Local Event Management</p>
-					<div class="col-xs-12 text-center">
-						<button class="btn btn-default btn-dg">View Case Study</button>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="/clients#ncaa-pac12" class="case-study-preview">
-					<div class="case-preview-img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/temp_img/pac12-preview.jpg'"></div>
-					<h4 class="case-preview-name">NCAA PAC - 12</h4>
-					<p class="case-preview-snippet">Promotions, Localization, Tournement Management</p>
-					<div class="col-xs-12 text-center">
-						<button class="btn btn-default btn-dg">View Case Study</button>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="/clients#unilever" class="case-study-preview">
-					<div class="case-preview-img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/temp_img/unilever-preview.jpg'"></div>
-					<h4 class="case-preview-name">Unilever</h4>
-					<p class="case-preview-snippet">Introduction to foreign markets. Promotions, and event management</p>
-					<div class="col-xs-12 text-center">
-						<button class="btn btn-default btn-dg">View Case Study</button>
-					</div>
-				</a>
-			</li>
-		</ul>
+		<div class="studies-preview-list clear">
+			<a href="/clients#nfl" class="case-study-preview">
+				<div class="case-preview-img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/temp_img/nfl-preview.jpg'"></div>
+				<h4 class="case-preview-name">NFL</h4>
+				<p class="case-preview-snippet">Branding, Promotions, and Local Event Management</p>
+				<div class="col-xs-12 text-center">
+					<button class="btn btn-default btn-dg">View Case Study</button>
+				</div>
+			</a>
+			<a href="/clients#ncaa-pac12" class="case-study-preview">
+				<div class="case-preview-img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/temp_img/pac12-preview.jpg'"></div>
+				<h4 class="case-preview-name">NCAA PAC - 12</h4>
+				<p class="case-preview-snippet">Promotions, Localization, Tournement Management</p>
+				<div class="col-xs-12 text-center">
+					<button class="btn btn-default btn-dg">View Case Study</button>
+				</div>
+			</a>
+			<a href="/clients#unilever" class="case-study-preview">
+				<div class="case-preview-img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/temp_img/unilever-preview.jpg'"></div>
+				<h4 class="case-preview-name">UNILEVER</h4>
+				<p class="case-preview-snippet">Introduction to foreign markets. Promotions, and event management</p>
+				<div class="col-xs-12 text-center">
+					<button class="btn btn-default btn-dg">View Case Study</button>
+				</div>
+			</a>
+		</div>
 	</div>
 </section>
 <hr>
@@ -165,7 +159,7 @@
 						<!-- post title -->
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 							<h1 class="article-preview-headline"><?php the_title(); ?></h1>
-							<h5 class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></h5></a>
+							<h6 class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></h6></a>
 							<?php html5wp_excerpt('html5wp_index'); ?>
 					</div>
 				</article>

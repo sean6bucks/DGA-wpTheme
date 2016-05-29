@@ -1,6 +1,9 @@
+<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
+<section id="about-us-jumbotron" style="background-image: url('<?php echo $url ?>')">
+</section>
 <section id="our-story">
 	<div class="content-wrapper">
-		<h3 class="section-headline">OUR STORY</h3>
+		<h2 class="section-headline">Our Story</h2>
 		<p class="section-textblock">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel vestibulum sapien. Cras pharetra vel diam a gravida. Ut condimentum tempor eros in mollis. Aenean euismod ipsum eu lacus volutpat efficitur. Donec imperdiet metus dui. Aenean in libero arcu. Phasellus.</p>
 	</div>
 </section>
@@ -68,6 +71,7 @@
 <section id="careers">
 	<div class="content-wrapper">
 		<h3 class="section-headline">CAREERS</h3>
+		<h4 class="section-subtext">We are always looking for the best people to build the best team! So if you are looking to get in on the aciton, check out our current openings below.</h4>
 		<div class="jobs-list">
 			<div class="panel-group" id="accordion">
 				<div class="job-item panel panel-default">

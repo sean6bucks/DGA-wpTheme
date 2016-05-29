@@ -30,6 +30,42 @@
     background-size: cover;
 }
 
+#index-header #main-nav.nav {
+	background: transparent;
+	position: absolute;
+	top: 0;
+}
+
+#index-header #main-nav.nav .nav-title {
+	display: none;
+}
+
+#index-header #main-nav.nav .nav-list .nav-item a{
+	color: #666;
+	line-height: 56px;
+	font-family: 'Oswald-ExtraLight', Helvetica, Arial, sans-serif;
+}
+#index-header #main-nav.nav .nav-list .nav-item a:hover {
+	color: #fff;
+}
+
+#index-header #main-nav.nav .nav-list .nav-item .dropdown-content {
+	display: none;
+	position: absolute;
+	top: 33px;
+	left: 0;
+	background-color: rgba(0,0,0,0.1);
+}
+
+#index-header #main-nav.nav .nav-list .nav-item .dropdown-content a { 
+	color: #666;
+	line-height: 33px;
+	border: none;
+}
+#index-header #main-nav.nav .nav-list .nav-item .dropdown-content a:hover {
+	color: #fff;
+}
+
 
 /*------- COMPANY INFO ----------*/
 /*-------------------------------*/
@@ -39,6 +75,7 @@
 }
 #company-information .section-headline {
 	margin-bottom: 30px;
+	color: #8e0101;
 }
 
 #company-information .company-tagline {
@@ -130,33 +167,23 @@
 
 /*----- CASE STUDY PREVIEWS -----*/
 /*-------------------------------*/
-#case-study-previews {
-	padding-bottom: 100px;
-}
+
 #case-study-previews h3 {
 	margin-bottom: 50px;
 }
 
-#case-study-previews ul {
-	list-style: none;
-	max-width: 1140px;
+#case-study-previews .studies-preview-list {
 	margin: 0 auto;
-	padding: 0;
+	width: 100%;
+	text-align: center;
 }
 
-#case-study-previews ul li {
-	display: inline-block;
-	float: left;
-	width: 33%;
-}
-#case-study-previews .case-study-preview * {
-	cursor: pointer !important;
-}
 #case-study-previews .case-study-preview {
+	display: inline-block;
+	position: relative;
 	width: 300px;
 	height: 500px;
-	margin: 0 auto;
-	display: block;
+	margin: 0 25px 50px 25px;
 	background-color: #fff;
 	border-radius: 5px;
 	-webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.5);
@@ -169,16 +196,19 @@
 	height: 320px;
 	margin-bottom: 10px; 
 	border-radius: 5px 5px 0 0;
-    background-position:50% 50%;
+    background-position: 50% 50%;
     background-size: cover;
 }
 
 #case-study-previews .case-study-preview h4 {
 	position: absolute;
 	display: inline-block;
-	padding: 0 10px;
-	margin: -62px 0 0 10px;
-	font-size: 30px;
+	width: 100%;
+    top: 266px;
+    text-align: left;
+    left: 0;
+    padding: 5px 10px;
+	font-size: 40px;
 	background-color: rgba(0,0,0,0.5);
 	color: #fff;
 }

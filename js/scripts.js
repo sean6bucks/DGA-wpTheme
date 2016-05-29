@@ -1,6 +1,12 @@
 (function ($, root, undefined) {
 	$(function () {
 		
+		window.onload = function(){
+			if (window.location.hash) {
+				$(document).scrollTop( $(document).scrollTop() - 75);
+			}
+		};
+
 		'use strict';
 		var isIndex = $('#index-header')[0] ? true : false
 		// Set Jumbotron as full-height
@@ -29,14 +35,20 @@
 
         });
 
+        $('.nav-item').hover(
+		 	function() {
+		    	$(this).find('.dropdown-content').stop(true).slideDown(200);
+		  	}, function() {
+		    	$(this).find('.dropdown-content').stop(true).slideUp(200);
+		  	}
+		);
+
 		// Handle scroll to nav bar or first seciton
 		$('.header-jumbotron').on('click', function(event){
 			$('html, body').animate({
 	          scrollTop: $('#company-information').offset().top - 56
 	        }, 700, 'swing');
 		});
-
-		console.log($('.bio-item'));
 
 	});
 })(jQuery, this);

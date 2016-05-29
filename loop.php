@@ -1,33 +1,31 @@
-<?php query_posts('post_type=post&posts_per_page=5&paged='.get_query_var('paged'));
+<?php query_posts('post_type=post&posts_per_page=10&paged='.get_query_var('paged'));
 	  if (have_posts()): while (have_posts()) : the_post(); ?>
 
 	<!-- article -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
 		<!-- post thumbnail -->
-		<?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-				<?php the_post_thumbnail(array(120,120)); // Declare pixel size you need inside the array ?>
-			</a>
+		<?php if ( has_post_thumbnail()) : 
+		$post_image_id = get_post_thumbnail_id($post_to_use->ID);
+			if ($post_image_id) {
+				$thumbnail = wp_get_attachment_image_src( $post_image_id, 'post-thumbnail', false);
+				if ($thumbnail) (string)$thumbnail = $thumbnail[0];
+			} ?>
+		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="preview-image" style="background-image: url('<?php echo $thumbnail; ?>');">
+		<?php else: ?>
+		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="preview-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/dg_logo_full.png');">
 		<?php endif; ?>
+		</a>
 		<!-- /post thumbnail -->
-
-		<!-- post title -->
-		<h2>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-		</h2>
-		<!-- /post title -->
-
-		<!-- post details -->
-		<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-		<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-		<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-		<!-- /post details -->
-
-		<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
-
-		<?php edit_post_link(); ?>
-
+		<div class="preview-body">
+			<!-- post title -->
+			<h4 class="post-categories"><?php exclude_post_categories( ); ?></h4>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+				<h4 class="preview-headline"><?php the_title(); ?></h4>
+				<h6 class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></h6>
+			</a>
+			<?php html5wp_excerpt('html5wp_index'); ?>
+			<?php echo get_the_tag_list('<p class="post-tags">Tags: ',', ','</p>'); ?>
+		</div>
 	</article>
 	<!-- /article -->
 

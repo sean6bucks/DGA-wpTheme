@@ -41,9 +41,9 @@
 				<div class="header-jumbotron" style="background-image: url('<?php echo $url ?>')">
 				</div>
 				<!-- /jumbotron img -->
-			<?php else: ?>
+			<?php endif; ?>
 				<!-- nav -->
-				<nav class="nav" role="navigation">
+				<nav id="main-nav" class="nav" role="navigation">
 					<div class="nav-title">
 						<a href="<?php echo home_url() ?>"><img class="logo-full" src="<?php echo get_template_directory_uri(); ?>/img/dg_logo_full_sm_white.png" /></a>
 					</div>
@@ -52,7 +52,7 @@
 						<li class="nav-item">
 							<a href="/about-us">ABOUT US</a>
 							<div id="about-us-dropdown" class="dropdown-content">
-								<a href="/about-us#team">OUR TEAM</a>
+								<a href="/about-us#our-team">OUR TEAM</a>
 								<a href="/about-us#careers">CAREERS</a>
 							</div>
 						</li>
@@ -67,7 +67,6 @@
 					</ul>
 				</nav>
 				<!-- /nav -->
-			<?php endif; ?>
 				
 				<!-- collapsed nav -->
 				<nav class="nav fixed-nav" role="navigation">
@@ -76,8 +75,19 @@
 					</div>
 
 					<ul class="nav-list">
-						<li class="nav-item"><a href="/about-us">ABOUT US</a></li>
-						<li class="nav-item"><a href="/case-studies">CASE STUDIES</a></li>
+						<li class="nav-item">
+							<a href="/about-us">ABOUT US</a>
+							<div id="about-us-dropdown" class="dropdown-content">
+								<a href="/about-us#our-team">OUR TEAM</a>
+								<a href="/about-us#careers">CAREERS</a>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a href="/case-studies">CASE STUDIES</a>
+							<div id="case-studies-dropdown" class="dropdown-content">
+								<a href="/case-studies#clients">CLIENTS</a>
+							</div>
+						</li>
 						<li class="nav-item"><a href="/blog">BLOG</a></li>
 						<li class="nav-item"><a href="http://www.dragonadventureschina.com">DRAGON ADVENTURES</a></li>
 					</ul>

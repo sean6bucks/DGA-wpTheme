@@ -1,0 +1,131 @@
+#case-studies .section-headline {
+	color: #8e0101;
+}
+
+#case-studies .studies-list {
+	margin: 0 50px;
+}
+
+#case-studies .studies-list .case-study-block .study-item {
+	display: block;
+	width: 250px;
+	height: 250px;
+	position: relative;
+	margin: 25px auto;
+}
+
+#case-studies .studies-list .col-sm-6:nth-child(even) .study-item {
+	margin-right: 6%;
+}
+#case-studies .studies-list .col-sm-6:nth-child(odd) .study-item {
+	margin-left: 6%;
+}
+
+#case-studies .studies-list .case-study-block .study-item img {
+	width: 250px;
+	height: 250px;
+}
+
+#case-studies .case-study-block .study-item .study-textblock {
+	opacity: 0;
+	width: 250px;
+	height: 250px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.8);
+	padding: 5px;
+	transition: opacity 150ms linear;
+}
+#case-studies .studies-list .case-study-block .study-item:hover .study-textblock {
+	opacity: 1;
+}
+
+#case-studies .case-study-block .study-item .study-textblock .study-headline {
+	color: #ffffff;
+	font-size: 60px;
+	margin: 65px auto 0 auto;
+}
+
+#case-studies .case-study-block .study-item .study-textblock .study-description {
+	text-align: center;
+	color: #E6E6E6;
+	font-size: 14px;
+	text-indent: 10px;
+	padding: 10px 10px;
+}
+
+.case-study img {
+	display: block;
+	width: 50%;
+	margin: 0 auto;
+	margin-bottom: 40px;
+}
+
+.case-study .section-textblock {
+	clear: both;
+	width: 80%;
+	font-size: 16px;
+	line-height: 20px;
+	text-indent: 50px;
+	margin: 0 auto;
+	padding-bottom: 40px;
+}
+
+#clients .clients-list {
+	margin: 0 auto;
+	width: 80%;
+	text-align: center;
+}
+
+#clients .clients-list .client-item {
+	display: inline-block;
+	height: 100px;
+    padding: 0 20px;
+    margin: 0 -1px 20px 0;
+    width: 160px;
+    line-height: 100px;
+    position: relative;
+}
+
+#clients .clients-list .client-item .client-logo {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+    float: left;
+    max-height: 100px;
+    max-width: 120px;
+}
+
+#inquiry .inquiry-form {
+	margin: 0 auto;
+	width: 700px;
+}
+
+#inquiry .inquiry-form .half-width {
+	width: 50%;
+	float: left;
+}
+
+#inquiry .inquiry-form .half-width:nth-child(even) {
+	padding-right: 5px;
+}
+
+#inquiry .inquiry-form .half-width:nth-child(odd) {
+	padding-left: 5px;
+}
+
+#inquiry .inquiry-form textarea {
+	resize: none;
+}
+
+#inquiry .inquiry-form .btn {
+	width: 300px;
+	margin: 20px auto 0 auto;
+}
+
+
+
+
+
