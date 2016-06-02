@@ -14,7 +14,7 @@
 if( $images ){ ?>
     <div id="image-gallery">
         <?php foreach($images as $image){ ?>
-        <a href="<?php echo $image->guid; ?>" style="background-image: url('<?php echo $image->guid; ?>');"class="gallery-image slide" data-lightbox="<?php echo the_title(); ?>" >
+        <a href="<?php echo $image->guid; ?>" style="background-image: url('<?php echo $image->guid; ?>');"class="gallery-image slide" data-lightbox="<?php echo $image->post_ID; ?>" >
         </a>
         <?php } ?>
     </div>

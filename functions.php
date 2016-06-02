@@ -370,7 +370,7 @@ function pw_show_gallery_image_urls( $content ) {
     // Loop through each image in each gallery
     foreach( $gallery as $image_url ) {
 
-        $image_list .= '<a href="' . $image_url . '" style="background-image: url(' . $image_url . ');" class="gallery-image slide" data-lightbox="' . $title . '">' . '</a>';
+        $image_list .= '<a href="' . $image_url . '" style="background-image: url(' . $image_url . ');" class="gallery-image slide" data-lightbox="gallery' . get_the_ID() . '">' . '</a>';
 
     }
 
