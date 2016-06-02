@@ -1,79 +1,53 @@
+<?php $studies = CFS()->get( 'case_studies' );
+if (count($studies)) : ?>
 <section id="case-studies">
 	<div class="content-wrapper">
 		<h2 class="section-headline">Case Studies</h2>
 		<div class="studies-list">
+			<?php foreach ( $studies as $key=>$study ) { ?>
 			<div class="case-study-block col-sm-4">
-				<a href="#nfl-study" class="study-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/temp_img/nfl-logo.jpg" >
+				<a href="#<?php echo $study['case_slug'] ?>" class="study-item">
+					<img src="<?php echo $study['case_company_logo'] ?>" >
 					<div class="study-textblock">
-						<h3 class="study-headline text-center">NFL</h3>
-						<p class="study-description">Focus on localized promotion and branding through a series of viewing parties and other events</p>
+						<h3 class="study-headline text-center"><?php echo $study['case_company_name'] ?></h3>
+						<p class="study-description"><?php echo $study['case_preview_text'] ?></p>
 					</div>
 				</a>
 			</div>
-			<div class="case-study-block col-sm-4">
-				<a class="study-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/temp_img/pac-12-logo.png" >
-					<div class="study-textblock">
-						<h3 class="study-headline text-center">PAC-12</h3>
-						<p class="study-description">Focus on localized promotion and branding through a series of viewing parties and other events</p>
-					</div>
-				</a>
-			</div>
-			<div class="case-study-block col-sm-4">
-				<a class="study-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/temp_img/unilever-logo.jpg" >
-					<div class="study-textblock">
-						<h3 class="study-headline text-center">UNILEVER</h3>
-						<p class="study-description">Focus on localized promotion and branding through a series of viewing parties and other events</p>
-					</div>
-				</a>
-			</div>
-			<!-- IF 4TH OR 5TH STUDIES -->
-			<!-- <div class="case-study-block col-sm-6">
-				<a class="study-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/temp_img/nfl-logo.jpg" >
-					<div class="study-textblock">
-						<h2 class="study-headline text-center">NFL</h2>
-						<p class="study-description">Focus on localized promotion and branding through a series of viewing parties and other events</p>
-					</div>
-				</a>
-			</div> -->
+			<?php } ?>
 		</div>
 	</div>
 </section>
 <hr>
 
-<section id="nfl-study" class="case-study">
+<?php 
+$studies = CFS()->get( 'case_studies' );
+foreach ( $studies as $key=>$study ) { ?>
+
+<section id="<?php echo $study['case_slug'] ?>" class="case-study blog-post">
 	<div class="content-wrapper">
-		<h3 class="section-headline">NFL</h3>
-		<p class="section-textblock">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel vestibulum sapien. Cras pharetra vel diam a gravida. Ut condimentum tempor eros in mollis. Aenean euismod ipsum eu lacus volutpat efficitur. Donec imperdiet metus dui. Aenean in libero arcu. Phasellus.</p>
-		<img src="<?php echo get_template_directory_uri(); ?>/img/temp_img/nfl_study1.jpeg">
-		<p class="section-textblock">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel vestibulum sapien. Cras pharetra vel diam a gravida. Ut condimentum tempor eros in mollis. Aenean euismod ipsum eu lacus volutpat efficitur. Donec imperdiet metus dui. Aenean in libero arcu. Phasellus.</p>
-		<img src="<?php echo get_template_directory_uri(); ?>/img/temp_img/nfl_study2.jpeg">
+		<h3 class="section-headline"><?php echo $study['case_company_name'] ?></h3>
+		<div class="text-wrapper">
+			<?php echo $study['case_body_text'] ?>
+		</div>
 	</div>
 </section>
 <hr>
+
+<?php } 
+endif; ?>
 
 <section id="clients">
 	<div class="content-wrapper">
 		<h3 class="section-headline">CLIENTS</h3>
 		<div class="clients-list clear">
+			<?php 
+			$clients = CFS()->get( 'clients' );
+			foreach ( $clients as $key=>$client ) { ?>
 			<div class="client-item">
-				<img class="client-logo" src='<?php echo get_template_directory_uri(); ?>/img/temp_img/nfl-logo.jpg'>
+				<img class="client-logo" src='<?php echo $client['client_logo'] ?>'>
 			</div>
-			<div class="client-item">
-				<img class="client-logo" src='<?php echo get_template_directory_uri(); ?>/img/temp_img/unilever_logo_text.png'>
-			</div>
-			<div class="client-item">
-				<img class="client-logo" src='<?php echo get_template_directory_uri(); ?>/img/temp_img/ncaa_logo1.png'>
-			</div>
-			<div class="client-item">
-				<img class="client-logo" src='<?php echo get_template_directory_uri(); ?>/img/temp_img/shokay_logo.jpeg'>
-			</div>
-			<div class="client-item">
-				<img class="client-logo" src='<?php echo get_template_directory_uri(); ?>/img/temp_img/reebok_logo.jpeg'>
-			</div>
+			<?php } ?>
 		</div>
 	</div>
 </section>

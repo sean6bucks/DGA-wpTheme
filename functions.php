@@ -101,6 +101,9 @@ function html5blank_header_scripts()
         wp_register_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), false, 'all'); // Custom scripts
         wp_enqueue_script('bootstrap-js'); // Enqueue it!
 
+        wp_register_script('lightbox-js', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), false, 'all'); // Custom scripts
+        wp_enqueue_script('bootstrap-js'); // Enqueue it!
+
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
     }
@@ -124,6 +127,9 @@ function html5blank_styles()
 
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), false, 'all' );
 	wp_enqueue_style('bootstrap');
+
+	wp_enqueue_style( 'lightbox', get_template_directory_uri() . '/css/lightbox.css', array(), false, 'all' );
+	wp_enqueue_style('lightbox');
 
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/fonts/font-awesome/css/font-awesome.min.css', array(), false, 'all' );
 	wp_enqueue_style('awesome');
@@ -333,6 +339,63 @@ function exclude_post_categories($excl=''){
     }
 }
 
+// Remove IMG from P tags
+function filter_ptags_on_images($content){
+   return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+function filter_ptags_on_embedded($content){
+   return preg_replace('/<p>\s*(<iframe .*<\/iframe>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+//CREATE GALLERY SLIDESHOW
+function pw_show_gallery_image_urls( $content ) {
+
+    global $post;
+
+    // Only do this on singular items
+    if( ! is_singular() )
+        return $content;
+
+    // Make sure the post has a gallery in it
+    if( ! has_shortcode( $post->post_content, 'gallery' ) )
+        return $content;
+
+    // Retrieve the first gallery in the post
+    $gallery = get_post_gallery_images( $post );
+
+    // Get post title
+    $title = get_the_title( $post );
+
+    $image_list = '<div id="image-gallery">';
+
+    // Loop through each image in each gallery
+    foreach( $gallery as $image_url ) {
+
+        $image_list .= '<a href="' . $image_url . '" style="background-image: url(' . $image_url . ');" class="gallery-image slide" data-lightbox="' . $title . '">' . '</a>';
+
+    }
+
+    $image_list .= '</div>';
+
+    $nav_bar = '<div class="gallery-nav"><div class="gallery-prev"> <img src="'. get_template_directory_uri() .'/img/icons/arrow-prev.png"> </div> <div class="slider-thumbs">';
+
+    $smallthumb = '';
+    if ( count($gallery) > 7 )
+        $smallthumb = "smallthumb";
+    // Loop through each image in each gallery
+    foreach( $gallery as $thumbnail ) {
+
+        $nav_bar .= '<div class="thumb ' . $smallthumb . '"> <img src="' . $thumbnail . '" alt="" title="' . $title . '"/></div>';
+
+    }
+
+    $nav_bar .= '</div> <div class="gallery-next"> <img src="'. get_template_directory_uri() .'/img/icons/arrow-next.png"> </div> </div>';
+
+    // Append our image list to the content of our post
+    $content .= $image_list . $nav_bar;
+
+    return $content;
+}
+
 // Custom Comments Callback
 function html5blankcomments($comment, $args, $depth)
 {
@@ -460,8 +523,10 @@ add_filter('excerpt_more', 'html5_blank_view_article'); // Add 'View Article' bu
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter('style_loader_tag', 'html5_style_remove'); // Remove 'text/css' from enqueued stylesheet
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
-add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
-
+add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); //Remove width and height dynamic attributes to post images
+add_filter('the_content', 'filter_ptags_on_images');
+add_filter('the_content', 'filter_ptags_on_embedded');
+add_filter('the_content', 'pw_show_gallery_image_urls' );
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
 

@@ -1,31 +1,31 @@
-<section id="company-information" class="index-section" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/temp_img/socialmedia-jumbo_bw.jpg'">
+<section id="company-information" class="index-section" style="background-image: url('<?php echo CFS()->get( 'headline_background' ); ?>')">
 	<div class="content-wrapper">
 		<div class="company-tagline">
-			<h2 class="section-headline"><?php echo get_post_meta( get_the_ID(), 'company_tagline', true ) ?> </h2>
-			<p class="section-textblock">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel vestibulum sapien. Cras pharetra vel diam a gravida. Ut condimentum tempor eros in mollis. Aenean euismod ipsum eu lacus volutpat efficitur. Donec imperdiet metus dui. Aenean in libero arcu. Phasellus.</p>
+			<h2 class="section-headline"><?php echo CFS()->get( 'index_headline' ); ?></h2>
+			<p class="section-textblock"><?php echo CFS()->get( 'index_subtext' ); ?></p>
 		</div>
 		<div class="home-contact-form">
 			<h4>Contact Us</h4>
-			<form class="clear">
+			<form id="index-contact" method="post" action="<?php echo get_template_directory_uri() . '/mailer.php'; ?>" class="clear">
 				<fieldset class="form-group">
 			    	<label for="indexContactName">Name<span class="text-danger">*</span></label>
-			    	<input type="text" class="form-control" id="indexContactName" placeholder="Jane Smith" required>
+			    	<input type="text" name="contact_name" class="form-control" id="indexContactName" placeholder="Jane Smith" required>
+			  	</fieldset>
+			  	<fieldset class="form-group">
+			    	<label for="indexContactEmail">Email<span class="text-danger">*</span></label>
+			    	<input type="email" name="contact_email" class="form-control" id="indexContactEmail" placeholder="Jane@Dragongroup.asia" required>
 			  	</fieldset>
 			  	<fieldset class="form-group">
 			    	<label for="indexContactCompany">Company</label>
-			    	<input type="text" class="form-control" id="indexContactCompany" placeholder="Dragon Group Asia">
-			  	</fieldset>
-				<fieldset class="form-group">
-			    	<label for="indexContactEmail">Email<span class="text-danger">*</span></label>
-			    	<input type="email" class="form-control" id="indexContactEmail" placeholder="Jane@Dragongroup.asia" required>
+			    	<input type="text" name="company_name" class="form-control" id="indexContactCompany" placeholder="Dragon Group Asia">
 			  	</fieldset>
 			  	<fieldset class="form-group half-width">
 			    	<label for="indexContactPosition">Position</label>
-			    	<input type="text" class="form-control" id="indexContactPosition" placeholder="Head of Marketing">
+			    	<input type="text" name="position" class="form-control" id="indexContactPosition" placeholder="Head of Marketing">
 			  	</fieldset>
 				<fieldset class="form-group half-width">
 				    <label for="indexContactIndustry">Industry</label>
-				    <select class="form-control" id="indexContactIndustry">
+				    <select class="form-control" name="industry" id="indexContactIndustry">
 				     	<option>Marketing</option>
 						<option>Sports</option>
 						<option>Entertainment</option>
@@ -35,20 +35,22 @@
 				  </fieldset>
 			  	<fieldset class="form-group half-width">
 			    	<label for="indexContactPhone">Phone</label>
-			    	<input type="text" class="form-control" id="indexContactPhone" placeholder="+1 123-444-5678">
+			    	<input type="text" name="contact_phone" class="form-control" id="indexContactPhone" placeholder="+1 123-444-5678">
 			  	</fieldset>
 			  	<fieldset class="form-group half-width">
 			    	<label for="indexContactWeChat">WeChat ID</label>
-			    	<input type="text" class="form-control" id="indexContactWeChat" placeholder="Head of Marketing">
+			    	<input type="text" name="contact_wechat" class="form-control" id="indexContactWeChat" placeholder="Head of Marketing">
 			  	</fieldset>
 			  	<fieldset class="form-group clear">
-					<textarea placeholder="How can we help you?" class="form-control" id="indexContactMessage" rows="3"></textarea>
+					<textarea required placeholder="How can we help you?" name="inquiry_message" class="form-control" id="indexContactMessage" rows="3"></textarea>
 				</fieldset>
+				<input hidden name="address" type="text">
 				<div class="col-xs-12 text-center">
 					<button type="submit" class="btn btn-primary">Send</button>
 				</div>
 				<h6 class="text-danger pull-right">*Required</h6>
 			</form>
+			<div id="form-messages"></div>
 		</div>
 	</div>
 </section>
@@ -57,76 +59,64 @@
 	<div class="content-wrapper">
 		<h3 class="section-headline">SERVICES</h3>
 		<div class="services-row clear">
+		<?php $services = CFS()->get( 'index_services' );
+			foreach ( $services as $key=>$service ) { 
+
+			if ( $key<3 ) : ?>
 			<div class="service-item col-sm-4">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/icons/Red_Carpet-100.png" >
-				<h2 class="service-headline text-center">Event Management</h2>
-				<p class="section-textblock">Expect international standards mixed with local best practices. Our logistics, audio visual, transportation and production capabilities make events seamless and stress‐free.</p>
+				<img src="<?php echo $service['service_image'] ?>" >
+				<h2 class="service-headline text-center"><?php echo $service['service_headline'] ?></h2>
+				<p class="section-textblock"><?php echo $service['service_text'] ?></p>
 			</div>
-			<div class="service-item col-sm-4">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/icons/Microphone-100.png" >
-				<h2 class="service-headline text-center">Public Relations</h2>
-				<p class="section-textblock">Turn key opinion leaders and media moguls into brand ambassadors. We connect the dots to maximize exposure to your target audience.</p>
-			</div>
-			<div class="service-item col-sm-4">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/icons/Statistics-100.png" >
-				<h2 class="service-headline text-center">Brand Strategy</h2>
-				<p class="section-textblock">Entering the Chinese market is no small feat. We’ll recommend the right platforms and channels to elevate your brand profile</p>
-			</div>
+		<?php endif;
+		} ?>
 		</div>
 		<div class="services-row clear">
+		<?php $services = CFS()->get( 'index_services' );
+			foreach ( $services as $key=>$service ) { 
+
+			if ( $key>=3 ) : ?>
 			<div class="service-item col-sm-4">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/icons/Smartphone-100.png" >
-				<h2 class="service-headline text-center">Social Media</h2>
-				<p class="section-textblock">Tapping into Weibo fan clubs and building a presence on Wechat takes more than posts. Look to our social media strategists to conduct an audit of your social profile first.</p>
+				<img src="<?php echo $service['service_image'] ?>" >
+				<h2 class="service-headline text-center"><?php echo $service['service_headline'] ?></h2>
+				<p class="section-textblock"><?php echo $service['service_text'] ?></p>
 			</div>
-			<div class="service-item col-sm-4">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/icons/Brush-100.png" >
-				<h2 class="service-headline text-center">Creative Content</h2>
-				<p class="section-textblock">Take your marketing materials up a notch with impressive infographics, videos and animation that bring your brand to life</p>
-			</div>
-			<div class="service-item col-sm-4">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/icons/Handshake-100.png" >
-				<h2 class="service-headline text-center">Community Partnerships</h2>
-				<p class="section-textblock">Word of mouth is a powerful form of advertisement. Our extensive global network means we can reach neighbors in China and the US.</p>
-			</div>
+		<?php endif;
+		} ?>
 		</div>
 	</div>
 </section>
 <hr>
 
 	<!-- CASE STUDIES -->
+<?php 
+	$studiesPage = get_page_by_title( 'case-studies' );
+	$studies = CFS()->get( 'case_studies', $studiesPage->ID );
+	if (count($studies)) : 
+?>
+
 <section id="case-study-previews" class="index-section">
 	<div class="content-wrapper">
 		<h3 class="section-headline">CASE STUDIES</h3>
 		<div class="studies-preview-list clear">
-			<a href="/clients#nfl" class="case-study-preview">
-				<div class="case-preview-img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/temp_img/nfl-preview.jpg'"></div>
-				<h4 class="case-preview-name">NFL</h4>
-				<p class="case-preview-snippet">Branding, Promotions, and Local Event Management</p>
+			<?php 
+			foreach ( $studies as $key=>$study ) { 
+			if ($study['featured_study']): ?>
+
+			<a href="/case-studies#<?php echo $study['case_slug'] ?>" class="case-study-preview">
+				<div class="case-preview-img" style="background-image: url('<?php echo $study['case_preview_image'] ?>')"></div>
+				<h4 class="case-preview-name"><?php echo $study['case_company_name'] ?></h4>
+				<p class="case-preview-snippet"><?php echo $study['case_preview_text'] ?></p>
 				<div class="col-xs-12 text-center">
 					<button class="btn btn-default btn-dg">View Case Study</button>
 				</div>
 			</a>
-			<a href="/clients#ncaa-pac12" class="case-study-preview">
-				<div class="case-preview-img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/temp_img/pac12-preview.jpg'"></div>
-				<h4 class="case-preview-name">NCAA PAC - 12</h4>
-				<p class="case-preview-snippet">Promotions, Localization, Tournement Management</p>
-				<div class="col-xs-12 text-center">
-					<button class="btn btn-default btn-dg">View Case Study</button>
-				</div>
-			</a>
-			<a href="/clients#unilever" class="case-study-preview">
-				<div class="case-preview-img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/temp_img/unilever-preview.jpg'"></div>
-				<h4 class="case-preview-name">UNILEVER</h4>
-				<p class="case-preview-snippet">Introduction to foreign markets. Promotions, and event management</p>
-				<div class="col-xs-12 text-center">
-					<button class="btn btn-default btn-dg">View Case Study</button>
-				</div>
-			</a>
+			<?php endif; } ?>
 		</div>
 	</div>
 </section>
 <hr>
+<?php endif; ?>
 	<!-- TOP POSTS -->
 <section id="social-preview" class="index-section">
 	<div class="content-wrapper">

@@ -103,7 +103,7 @@
 }
 
 #careers .section-subtext {
-	width: 600px;
+	width: 700px;
 	margin: -25px auto 30px auto;
 }
 
@@ -132,5 +132,11 @@
 	margin: 10px auto;
 }
 
+#careers .no-job-postings {
+	color: #8E0101;
+	font-size: 24px;
+	text-align: center;
+	width: 100%;
+}
 
 

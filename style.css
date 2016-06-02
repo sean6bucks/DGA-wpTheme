@@ -441,6 +441,17 @@ section {
 	margin-top: -25px;
 }
 
+.pagination {
+	clear: both;
+	text-align: center;
+	font-size: 16pt;
+	width: 100%;
+}
+
+.pagination .page-numbers:not(:last-child){
+	margin-right: 5px;
+}
+
 /*------------------------------------*\
     RESPONSIVE
 \*------------------------------------*/

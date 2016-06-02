@@ -56,12 +56,22 @@
 								<a href="/about-us#careers">CAREERS</a>
 							</div>
 						</li>
+						<?php 
+							$studiesPage = get_page_by_title( 'case-studies' );
+							$studies = CFS()->get( 'case_studies', $studiesPage->ID );
+							if (count($studies)) : 
+						?>
 						<li class="nav-item">
 							<a href="/case-studies">CASE STUDIES</a>
 							<div id="case-studies-dropdown" class="dropdown-content">
 								<a href="/case-studies#clients">CLIENTS</a>
 							</div>
 						</li>
+						<?php else : ?>
+						<li class="nav-item">
+							<a href="/case-studies#clients">CLIENTS</a>
+						</li>
+						<?php endif; ?>
 						<li class="nav-item"><a href="/blog">BLOG</a></li>
 						<li class="nav-item"><a href="http://www.dragonadventureschina.com">DRAGON ADVENTURES</a></li>
 					</ul>

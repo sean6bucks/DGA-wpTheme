@@ -1,7 +1,6 @@
-<?php query_posts('post_type=post&posts_per_page=10&paged='.get_query_var('paged'));
-	  if (have_posts()): while (have_posts()) : the_post(); ?>
+<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-	<!-- article -->
+    <!-- article -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<!-- post thumbnail -->
 		<?php if ( has_post_thumbnail()) : 
@@ -33,10 +32,10 @@
 
 <?php else: ?>
 
-	<!-- article -->
-	<article>
-		<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-	</article>
-	<!-- /article -->
+    <!-- article -->
+    <article>
+        <h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+    </article>
+    <!-- /article -->
 
 <?php endif; ?>
