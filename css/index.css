@@ -310,11 +310,11 @@
 /*------- NEWSLETTER ------------*/
 /*-------------------------------*/
 
-#newsletter-input .form-inline {
+#newsletter-form .form-inline {
 	text-align: center;
 }
 
-#newsletter-input .form-group {
+#newsletter-form .form-group {
 	display: inline-block;
 	padding: 10px;
 	border-radius: 5px;
@@ -322,13 +322,19 @@
 	background-color: rgba(50,50,50,0.1);
 }
 
-#newsletter-input .form-inline input {
+#newsletter-form .form-inline input {
 	width: 300px;
 	height: 34px;
 	margin-right: 10px;
 }
 
-#newsletter-input .form-inline .btn {
+#newsletter-form .form-inline .btn {
+	width: 72px;
 	background-color: #8e0101;
 	color: #fff;
+}
+
+#newsletter-form #signup_success {
+	margin-bottom: 64px;
+	display: none;
 }

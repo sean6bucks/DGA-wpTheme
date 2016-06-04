@@ -26,7 +26,7 @@
 							<!-- /post thumbnail -->
 							<div class="preview-body">
 								<!-- post title -->
-								<h4 class="post-categories"><?php exclude_post_categories( '5, 1'); ?></h4>
+								<h4 class="post-categories"><?php exclude_post_categories( '2, 1'); ?></h4>
 								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<h4 class="preview-headline"><?php the_title(); ?></h4>
 									<h6 class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></h6>

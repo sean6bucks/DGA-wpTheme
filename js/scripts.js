@@ -1,13 +1,15 @@
 (function ($, root, undefined) {
 	$(function () {
-		
+		'use strict';
+
+		// SET SCROLL TOP MENU HEIGHT HIGHER IF URL IS TO A HASH
 		window.onload = function(){
 			if (window.location.hash) {
 				$(document).scrollTop( $(document).scrollTop() - 75);
 			}
 		};
 
-		'use strict';
+		// SET FULL WINDOW HEIGHT ON INDEX JUMBOTRON
 		var isIndex = $('#index-header')[0] ? true : false
 		// Set Jumbotron as full-height
 		if(isIndex){
@@ -22,10 +24,8 @@
 			});
 		};
 
-
+		// SHOW AND HIDE FIXED HEADER ON PAGE SCROLL
 		var offsetBottom = isIndex ? $('.header-jumbotron').height() - 80 : 250;
-        // DETECT IF PAGE IS SCROLLED BELOW PAGE CATEGORIES
-        // SHOW MIN. NAV BAR IF BELOW CATEGORIES
         $(window).scroll(function(){
             if( $(document).scrollTop() > offsetBottom ) {
                 $('.fixed-nav').slideDown(300);
@@ -35,6 +35,7 @@
 
         });
 
+        // PREVENT MENU DROPDOWNS FROM QUEING
         $('.nav-item').hover(
 		 	function() {
 		    	$(this).find('.dropdown-content').stop(true).slideDown(200);
@@ -170,7 +171,7 @@
 	        });
 	    }
 
-
+	    // BEHAVIOR FOR CONTACT FORMS
 		var form = $('#index-contact');
 	    // Get the messages div.
 	    var formMessages = $('#form-messages');
@@ -217,6 +218,70 @@
 				    }
 			    }
 			});
+		});
+
+		// BEHAVIOR FOR NEWSLETTER FORM
+		$('#newsletter-form form').submit(function(event) {
+			event.preventDefault();
+			var $form = $('#newsletter-form form');
+
+			if(!$('#mce-EMAIL').val()) return false;
+
+			$('#mc-embedded-subscribe').html('<i class="fa fa-spinner fa-spin"></i>');
+
+			$.ajax({
+		        type: "GET",
+		        url: $form.attr("action"),
+		        data: $form.serialize(),
+		        cache: false,
+		        dataType: "jsonp",
+		        jsonp: "c", // trigger MailChimp to return a JSONP response
+		        contentType: "application/json; charset=utf-8",
+
+		        error: function(error){
+		            // According to jquery docs, this is never called for cross-domain JSONP requests
+		        },
+
+		        success: function(data){
+		        	console.log(data);
+		            if (data.result == "error") {
+		                if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
+		                    $('#mc_embed_signup .section-subtext').text('Sorry, this email has already been subscribed.').css({color: 'red'});
+		                } else {
+		                	$('#mc_embed_signup .section-subtext').text('Sorry. Unable to subscribe. Please try again later.').css({color: 'red'});
+		                }
+		                $('#mce-EMAIL').val('');
+		                $('#mc-embedded-subscribe').html('Submit');
+		            } else {
+		                $('#mc_embed_signup').hide();
+		            	$('#signup_success').show();
+		            }
+		        }
+		    });
+			// var data = { 
+			// 		apikey: '3b6f2b067d3f877adf79a50340f72ead-us2',
+			// 		id: '34772ee081',
+			// 		email: {
+			// 			email: $('#newsletter-email').val()
+			// 		}
+			// 	};
+
+			// $('#newsletter-submit').text('').html('<i class="fa fa-spinner fa-spin"></i>');
+
+			// // $.ajax({
+			// // 	type: 'POST',
+			// // 	url: 'https://us2.api.mailchimp.com/2.0/lists/subscribe',
+			// // 	data: data,
+			// // 	success: function(response){
+			// // 		console.log(response);
+			// // 	},
+			// // 	error: function(error){
+			// // 		console.log(error);
+			// // 	}
+			// // });
+
+			// List 34772ee081
+			// API 3b6f2b067d3f877adf79a50340f72ead-us2
 		});
 
 	});

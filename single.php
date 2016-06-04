@@ -20,7 +20,7 @@
 				<!-- /post title -->
 				<!-- post details -->
 				<div class="publish-information">
-					<p><h4 class="post-category"><?php exclude_post_categories( '5,1' ); ?></h4> </p>
+					<p><h4 class="post-category"><?php exclude_post_categories( '2,1' ); ?></h4> </p>
 				</div>
 				<!-- /post details -->
 				<div class="text-wrapper">

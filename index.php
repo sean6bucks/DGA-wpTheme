@@ -163,15 +163,26 @@
 	</div>
 </section>
 <hr>
-<section id="newsletter-input" class="index-section">
-	<div class="content-wrapper">
+<section id="newsletter-form" class="index-section">
+	<div class="content-wrapper" id="mc_embed_signup">
 		<h3 class="section-headline">Get Our Newsletter!</h3>
 		<h4 class="section-subtext">Stay up to date with the latest news from Dragon Group Asia.</h4>
-		<form class="form-inline">
+			<!-- <div class="form-group">
+				<input type="email" class="form-control" id="newsletter-email" required placeholder="Enter your email...">
+				<button id="newsletter-submit" type="submit" class="btn btn-default">Submit</button>
+			</div> -->
+			<!-- Begin MailChimp Signup Form -->
+		<form action="//dragoneventschina.us2.list-manage.com/subscribe/post-json?u=7acb0e539eedef8267af1f8cb&amp;id=34772ee081" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
 			<div class="form-group">
-				<input type="email" class="form-control" id="newsletter-email" placeholder="Enter your email...">
-				<button type="submit" class="btn btn-default">Submit</button>
+				<input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="Enter your email..." required>
+			    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+			    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_7acb0e539eedef8267af1f8cb_34772ee081" tabindex="-1" value=""></div>
+			    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-default">Submit</button>
 			</div>
 		</form>
+	</div>
+	<div class="content-wrapper" id="signup_success">
+		<h3 class="section-headline">Successfully Subscribed!</h3>
+		<h4 class="section-subtext">Please check your email for a confirmation message.</h4>
 	</div>
 </section>
