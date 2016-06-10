@@ -51,6 +51,16 @@
 	        }, 700, 'swing');
 		});
 
+		// PROFILE BIO SCROLL OVER
+		// -------------------------
+		$('.bio-item').hover(
+		 	function() {
+		    	$(this).find('.bio-text').stop(true).fadeIn(100);
+		  	}, function() {
+		    	$(this).find('.bio-text').stop(true).fadeOut(100);
+		  	}
+		);
+
 		// JUMBOTRON SLIDESHOW
 		// -----------------------
 		if ( document.getElementById('jumbotron-wrapper') ) {
@@ -170,55 +180,6 @@
 
 	        });
 	    }
-
-	    // BEHAVIOR FOR CONTACT FORMS
-		var form = $('#index-contact');
-	    // Get the messages div.
-	    var formMessages = $('#form-messages');
-	    $(form).submit(function(event) {
-		    // Stop the browser from submitting the form.
-		    event.preventDefault();
-		    // Serialize the form data.
-			var formData = $(form).serialize();
-			// Submit the form using AJAX.
-			console.log('URL:', $(form).attr('action'));
-		    $.ajax({
-			    type: 'POST',
-			    url: $(form).attr('action'),
-			    data: formData,
-			    success: function(response){
-			    	// Make sure that the formMessages div has the 'success' class
-				    $(formMessages).removeClass('error');
-				    $(formMessages).addClass('success');
-
-				    // Set the message text.
-				    $(formMessages).text(response);
-
-				    // Clear the form.
-				    $('#indexContactName').val('');
-				    $('#indexContactEmail').val('');
-				    $('#indexContactCompany').val('');
-				    $('#indexContactPosition').val('');
-				    $('#indexContactIndustry').val('');
-				    $('#indexContactPhone').val('');
-				    $('#indexContactWeChat').val('');
-				    $('#indexContactMessage').val('');
-				    console.log('SUCCESS', response);
-			    },
-			    error: function(data){
-			    	// Make sure that the formMessages div has the 'error' class.
-				    $(formMessages).removeClass('success');
-				    $(formMessages).addClass('error');
-
-				    // Set the message text.
-				    if (data.responseText !== '') {
-				        $(formMessages).text(data.responseText);
-				    } else {
-				        $(formMessages).text('Oops! An error occured and your message could not be sent.');
-				    }
-			    }
-			});
-		});
 
 		// BEHAVIOR FOR NEWSLETTER FORM
 		$('#newsletter-form form').submit(function(event) {

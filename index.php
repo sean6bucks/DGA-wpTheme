@@ -6,50 +6,7 @@
 		</div>
 		<div class="home-contact-form">
 			<h4>Contact Us</h4>
-			<form id="index-contact" method="post" action="<?php echo get_template_directory_uri() . '/mailer.php'; ?>" class="clear">
-				<fieldset class="form-group">
-			    	<label for="indexContactName">Name<span class="text-danger">*</span></label>
-			    	<input type="text" name="contact_name" class="form-control" id="indexContactName" placeholder="Jane Smith" required>
-			  	</fieldset>
-			  	<fieldset class="form-group">
-			    	<label for="indexContactEmail">Email<span class="text-danger">*</span></label>
-			    	<input type="email" name="contact_email" class="form-control" id="indexContactEmail" placeholder="Jane@Dragongroup.asia" required>
-			  	</fieldset>
-			  	<fieldset class="form-group">
-			    	<label for="indexContactCompany">Company</label>
-			    	<input type="text" name="company_name" class="form-control" id="indexContactCompany" placeholder="Dragon Group Asia">
-			  	</fieldset>
-			  	<fieldset class="form-group half-width">
-			    	<label for="indexContactPosition">Position</label>
-			    	<input type="text" name="position" class="form-control" id="indexContactPosition" placeholder="Head of Marketing">
-			  	</fieldset>
-				<fieldset class="form-group half-width">
-				    <label for="indexContactIndustry">Industry</label>
-				    <select class="form-control" name="industry" id="indexContactIndustry">
-				     	<option>Marketing</option>
-						<option>Sports</option>
-						<option>Entertainment</option>
-						<option>Events</option>
-						<option>Social Engagement</option>
-				    </select>
-				  </fieldset>
-			  	<fieldset class="form-group half-width">
-			    	<label for="indexContactPhone">Phone</label>
-			    	<input type="text" name="contact_phone" class="form-control" id="indexContactPhone" placeholder="+1 123-444-5678">
-			  	</fieldset>
-			  	<fieldset class="form-group half-width">
-			    	<label for="indexContactWeChat">WeChat ID</label>
-			    	<input type="text" name="contact_wechat" class="form-control" id="indexContactWeChat" placeholder="Head of Marketing">
-			  	</fieldset>
-			  	<fieldset class="form-group clear">
-					<textarea required placeholder="How can we help you?" name="inquiry_message" class="form-control" id="indexContactMessage" rows="3"></textarea>
-				</fieldset>
-				<input hidden name="address" type="text">
-				<div class="col-xs-12 text-center">
-					<button type="submit" class="btn btn-primary">Send</button>
-				</div>
-				<h6 class="text-danger pull-right">*Required</h6>
-			</form>
+			<?php echo do_shortcode('[contact-form-7 title="contact_form"]'); ?>
 			<div id="form-messages"></div>
 		</div>
 	</div>
@@ -167,11 +124,7 @@
 	<div class="content-wrapper" id="mc_embed_signup">
 		<h3 class="section-headline">Get Our Newsletter!</h3>
 		<h4 class="section-subtext">Stay up to date with the latest news from Dragon Group Asia.</h4>
-			<!-- <div class="form-group">
-				<input type="email" class="form-control" id="newsletter-email" required placeholder="Enter your email...">
-				<button id="newsletter-submit" type="submit" class="btn btn-default">Submit</button>
-			</div> -->
-			<!-- Begin MailChimp Signup Form -->
+		<!-- Begin MailChimp Signup Form -->
 		<form action="//dragoneventschina.us2.list-manage.com/subscribe/post-json?u=7acb0e539eedef8267af1f8cb&amp;id=34772ee081" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
 			<div class="form-group">
 				<input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="Enter your email..." required>

@@ -7,9 +7,8 @@
 		<p class="section-textblock"><?php echo CFS()->get( 'our_story_text' ); ?></p>
 	</div>
 </section>
-<hr>
 
-<section id="mission-values">
+<section id="mission-values" style="background-image: url('<?php echo CFS()->get( 'mission_background' ); ?>')">
 	<div class="content-wrapper">
 		<div class="about-info col-xs-4">
 			<h5 class="info-headline text-center"><?php echo CFS()->get( 'mission_headline' ); ?></h5>
@@ -25,7 +24,6 @@
 		</div>
 	</div>
 </section>
-<hr>
 
 <section id="our-team">
 	<div class="content-wrapper">
@@ -38,6 +36,11 @@
 					<div class="bio-info">
 						<h5 class="bio-name"><?php echo $member['profile_name'] ?></h5>
 						<p class="bio-job"><?php echo $member['profile_position'] ?></p>
+					</div>
+					<div class="bio-text">
+						<p>
+							<?php echo $member['profile_text'] ?>
+						</p>
 					</div>
 				</div>
 			</div>

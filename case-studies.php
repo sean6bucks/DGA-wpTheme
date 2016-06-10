@@ -58,50 +58,7 @@ endif; ?>
 		<h3 class="section-headline">CONTACT US</h3>
 		<h4 class="section-subtext">Inquire for more information</h4>
 		<div class="inquiry-form">
-			<form class="clear">
-				<fieldset class="form-group">
-			    	<label for="inquiryContactName">Name<span class="text-danger">*</span></label>
-			    	<input type="text" class="form-control" id="inquiryContactName" placeholder="Jane Smith" required>
-			  	</fieldset>
-			  	<fieldset class="form-group half-width">
-			    	<label for="inquiryContactCompany">Company</label>
-			    	<input type="text" class="form-control" id="inquiryContactCompany" placeholder="Dragon Group Asia">
-			  	</fieldset>
-				<fieldset class="form-group half-width">
-			    	<label for="inquiryContactEmail">Email<span class="text-danger">*</span></label>
-			    	<input type="email" class="form-control" id="inquiryContactEmail" placeholder="Jane@Dragongroup.asia" required>
-			  	</fieldset>
-			  	<fieldset class="form-group half-width">
-			    	<label for="inquiryContactPosition">Position</label>
-			    	<input type="text" class="form-control" id="inquiryContactPosition" placeholder="Head of Marketing">
-			  	</fieldset>
-				<fieldset class="form-group half-width">
-				    <label for="inquiryContactIndustry">Industry</label>
-				    <select class="form-control" id="inquiryContactIndustry">
-				     	<option>Marketing</option>
-						<option>Sports</option>
-						<option>Entertainment</option>
-						<option>Events</option>
-						<option>Social Engagement</option>
-				    </select>
-				</fieldset>
-			  	<fieldset class="form-group half-width">
-			    	<label for="inquiryContactPhone">Phone</label>
-			    	<input type="text" class="form-control" id="inquiryContactPhone" placeholder="+1 123-444-5678">
-			  	</fieldset>
-			  	<fieldset class="form-group half-width clear">
-			    	<label for="inquiryContactWeChat">WeChat ID</label>
-			    	<input type="text" class="form-control" id="inquiryContactWeChat" placeholder="Head of Marketing">
-			  	</fieldset>
-			  	<fieldset class="form-group" style="clear:both">
-			  		<label for="inquiryContactMessage">Questions or Comments</label>
-					<textarea placeholder="How can we help you?" class="form-control" id="inquiryContactMessage" rows="3"></textarea>
-				</fieldset>
-				<div class="col-xs-12 text-center">
-					<button type="submit" class="btn btn-block btn-dg">Send</button>
-				</div>
-				<h6 class="text-danger pull-right">*Required</h6>
-			</form>
+			<?php echo do_shortcode('[contact-form-7 title="contact_form"]'); ?>
 		</div>
 	</div>
 </section>

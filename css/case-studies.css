@@ -85,18 +85,25 @@
 	margin: 0 auto;
 	width: 700px;
 }
+#inquiry .inquiry-form form {
+	clear: both;
+}
 
 #inquiry .inquiry-form .half-width {
 	width: 50%;
 	float: left;
 }
 
-#inquiry .inquiry-form .half-width:nth-child(even) {
+#inquiry .inquiry-form .half-width:nth-child(odd) {
 	padding-right: 5px;
 }
 
-#inquiry .inquiry-form .half-width:nth-child(odd) {
+#inquiry .inquiry-form .half-width:nth-child(even) {
 	padding-left: 5px;
+}
+
+#inquiry .inquiry-form .textarea {
+	clear:both;
 }
 
 #inquiry .inquiry-form textarea {
@@ -108,6 +115,21 @@
 	margin: 20px auto 0 auto;
 }
 
+.inquiry-form .wpcf7-response-output {
+	border: none;
+	clear: both;
+	margin: 0 5px 15px 5px;
+	padding: 0;
+	font-size: 12px;
+	text-align: center;
+}
+.inquiry-form .wpcf7-validation-errors {
+	color: red;
+}
+.inquiry-form .wpcf7-not-valid-tip {
+	position: absolute;
+	width: 200px;
+}
 
 
 

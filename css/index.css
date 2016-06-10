@@ -72,6 +72,7 @@
 #company-information {
 	background-position:50% 50%;
     background-size: cover;
+    max-height: 726px;
 }
 #company-information .section-headline {
 	margin-bottom: 30px;
@@ -107,17 +108,20 @@
 	margin: 10px;
 	font-size: 32px;
 }
+#company-information .home-contact-form .form-group {
+	margin-bottom: 0;
+}
 
 #company-information .home-contact-form .half-width {
 	width: 50%;
 	float: left;
 }
 
-#company-information .home-contact-form .half-width:nth-child(even) {
+#company-information .home-contact-form .half-width:nth-child(odd) {
 	padding-right: 5px;
 }
 
-#company-information .home-contact-form .half-width:nth-child(odd) {
+#company-information .home-contact-form .half-width:nth-child(even) {
 	padding-left: 5px;
 }
 
@@ -127,9 +131,22 @@
 
 #company-information .home-contact-form .btn {
 	width: 100px;
-	font-weight: bold;
-	background-color: #8e0101;
-	border-color: #8e0101;
+}
+
+.home-contact-form .wpcf7-response-output {
+	border: none;
+	clear: both;
+	margin: 0 5px 15px 5px;
+	padding: 0;
+	font-size: 12px;
+	text-align: center;
+}
+.home-contact-form .wpcf7-validation-errors {
+	color: red;
+}
+.home-contact-form .wpcf7-not-valid-tip {
+	position: absolute;
+	width: 200px;
 }
 
 /*----------- SERVICES ----------*/

@@ -3,18 +3,7 @@
 	height: 600px;
 	background-position:50% 50%;
     background-size: cover;
-}
-
-#about-us-jumbotron .bottom-fade {
-	height: 200px;
-	width: 100%;
-	position: absolute;
-	bottom: 0;
-	left: 0; 
-	background: -webkit-linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-	background: -o-linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-	background: linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-}		
+}	
 
 #our-story {
 	padding: 150px 50px;
@@ -35,6 +24,8 @@
 
 #mission-values {
 	padding: 150px 50px;
+	background-position:50% 50%;
+    background-size: cover;
 }
 
 #mission-values .about-info {
@@ -96,6 +87,24 @@
 #our-team .company-bios .bio-item .bio-job {
 	color: #E6E6E6;
 	margin-bottom: 5px;
+}
+
+#our-team .company-bios .bio-item .bio-text {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 250px;
+	background-color: rgba(0,0,0,0.8);
+	padding: 10px;
+}
+
+#our-team .company-bios .bio-item .bio-text p {
+	font-size: 15px;
+	line-height: 18px;
+	text-indent: 15px;
+	color: #fff;
 }
 
 #careers {
