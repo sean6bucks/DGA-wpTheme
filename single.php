@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<div id="fb-root"></div>
 
 <main role="main">
 	<!-- section -->
@@ -20,7 +21,19 @@
 				<!-- /post title -->
 				<!-- post details -->
 				<div class="publish-information">
-					<p><h4 class="post-category"><?php exclude_post_categories( '2,1' ); ?></h4> </p>
+					<p><h4 class="post-category"><?php exclude_post_categories( '1' ); ?></h4> </p>
+				</div>
+				<!-- Social buttons -->
+				<div class="share-buttons">
+					<div class="share-btn fb-share-button" data-href="<?php echo get_permalink(); ?>" data-layout="button" data-mobile-iframe="false">
+						<a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"></a>
+					</div>
+					<div class="share-btn">
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo get_permalink(); ?>" data-hashtags="DragonGroupAsia"></a>
+					</div>
+					<div class="share-btn">
+					<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share" data-url="<?php echo get_permalink(); ?>"></script>
+					</div>
 				</div>
 				<!-- /post details -->
 				<div class="text-wrapper">

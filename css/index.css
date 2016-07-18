@@ -1,5 +1,6 @@
 /*Laoding Spinner*/
-#index-header .load-shade {
+#index-header .load-shade,
+#index_cn-header .load-shade {
 	min-height: 100%;
 	min-width: 100%;
 	width: 100%;
@@ -13,43 +14,51 @@
 	z-index: 1000;
 }
 
-#index-header .load-shade .spin-wrapper {
+#index-header .load-shade .spin-wrapper,
+#index_cn-header .load-shade .spin-wrapper {
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
 }
-#index-header .load-shade .spin-wrapper i.fa {
+#index-header .load-shade .spin-wrapper i.fa,
+#index_cn-header .load-shade .spin-wrapper i.fa {
 	color: #222;
 	font-size: 50px;
 }
 
-#index-header .header-jumbotron {
+#index-header .header-jumbotron,
+#index_cn-header .header-jumbotron {
 	width: 100%;
 	height: 700px;
 	background-position:50% 50%;
     background-size: cover;
 }
 
-#index-header #main-nav.nav {
+#index-header #main-nav.nav,
+#index_cn-header #main-nav.nav {
 	background: transparent;
 	position: absolute;
 	top: 0;
 }
 
-#index-header #main-nav.nav .nav-title {
+#index-header #main-nav.nav .nav-title,
+#index_cn-header #main-nav.nav .nav-title {
 	display: none;
 }
 
-#index-header #main-nav.nav .nav-list .nav-item a{
+#index-header #main-nav.nav .nav-list .nav-item a,
+#index_cn-header #main-nav.nav .nav-list .nav-item a {
 	color: #666;
 	line-height: 56px;
 	font-family: 'Oswald-ExtraLight', Helvetica, Arial, sans-serif;
 }
-#index-header #main-nav.nav .nav-list .nav-item a:hover {
+#index-header #main-nav.nav .nav-list .nav-item a:hover,
+#index_cn-header #main-nav.nav .nav-list .nav-item a:hover {
 	color: #fff;
 }
 
-#index-header #main-nav.nav .nav-list .nav-item .dropdown-content {
+#index-header #main-nav.nav .nav-list .nav-item .dropdown-content,
+#index_cn-header #main-nav.nav .nav-list .nav-item .dropdown-content {
 	display: none;
 	position: absolute;
 	top: 33px;
@@ -57,12 +66,14 @@
 	background-color: rgba(0,0,0,0.1);
 }
 
-#index-header #main-nav.nav .nav-list .nav-item .dropdown-content a { 
+#index-header #main-nav.nav .nav-list .nav-item .dropdown-content a,
+#index_cn-header #main-nav.nav .nav-list .nav-item .dropdown-content a { 
 	color: #666;
 	line-height: 33px;
 	border: none;
 }
-#index-header #main-nav.nav .nav-list .nav-item .dropdown-content a:hover {
+#index-header #main-nav.nav .nav-list .nav-item .dropdown-content a:hover,
+#index_cn-header #main-nav.nav .nav-list .nav-item .dropdown-content a:hover {
 	color: #fff;
 }
 
@@ -72,7 +83,6 @@
 #company-information {
 	background-position:50% 50%;
     background-size: cover;
-    max-height: 726px;
 }
 #company-information .section-headline {
 	margin-bottom: 30px;
@@ -80,10 +90,13 @@
 }
 
 #company-information .company-tagline {
-	width: 66%;
-	margin: 150px 0;
-	float: left;
-	display: inline-block;
+	width: 100%;
+	display: block;
+}
+
+#company-information .company-tagline .company-info-image {
+	margin: 0 auto;
+	display: block;
 }
 
 #company-information .company-tagline .section-textblock {
@@ -94,59 +107,30 @@
 	margin: 0 auto;
 }
 
-#company-information .home-contact-form {
-	width: 32%;
-	margin: 0 1%;
-	padding: 0 10px;
-	float: right;
-	background-color: rgba(255,255,255,0.8);
-	border-radius: 5px;
-}
-
-#company-information .home-contact-form h4 {
-	text-align: center;
-	margin: 10px;
-	font-size: 32px;
-}
-#company-information .home-contact-form .form-group {
-	margin-bottom: 0;
-}
-
-#company-information .home-contact-form .half-width {
-	width: 50%;
-	float: left;
-}
-
-#company-information .home-contact-form .half-width:nth-child(odd) {
-	padding-right: 5px;
-}
-
-#company-information .home-contact-form .half-width:nth-child(even) {
-	padding-left: 5px;
-}
-
-#company-information .home-contact-form textarea {
-	resize: none;
-}
-
-#company-information .home-contact-form .btn {
-	width: 100px;
-}
-
-.home-contact-form .wpcf7-response-output {
-	border: none;
-	clear: both;
-	margin: 0 5px 15px 5px;
-	padding: 0;
-	font-size: 12px;
+#company-information .clients-list {
+	margin: 0 auto;
+	width: 80%;
 	text-align: center;
 }
-.home-contact-form .wpcf7-validation-errors {
-	color: red;
+
+#company-information .client-item {
+	display: inline-block;
+	height: 100px;
+    padding: 0 20px;
+    margin: 0 -1px 20px 0;
+    width: 160px;
+    line-height: 100px;
+    position: relative;
 }
-.home-contact-form .wpcf7-not-valid-tip {
+
+#company-information .clients-list .client-item .client-logo {
 	position: absolute;
-	width: 200px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+    float: left;
+    max-height: 100px;
+    max-width: 120px;
 }
 
 /*----------- SERVICES ----------*/
@@ -157,10 +141,18 @@
 }
 
 #company-services .services-row {
-	padding: 0 50px;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
 }
-#company-services .services-row:nth-child(2) {
-	margin-bottom: 50px;
+
+#company-services .service-item {
+	vertical-align: top;
+	display: inline-block;
+	position: relative;
+	width: 30%;
+	height: 220px;
+	margin: 0 1.5% 50px 1.5%;
 }
 
 #company-services .service-item img {
@@ -196,37 +188,39 @@
 }
 
 #case-study-previews .case-study-preview {
+	vertical-align: top;
 	display: inline-block;
 	position: relative;
-	width: 300px;
-	height: 500px;
-	margin: 0 25px 50px 25px;
+	width: 30%;
+	max-width: 300px;
+	margin-bottom: 50px;
 	background-color: #fff;
 	border-radius: 5px;
-	-webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.5);
-	   -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.5);
-		    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0px 2px 6px -1px rgba(0,0,0,0.5);
+	   -moz-box-shadow: 0px 2px 6px -1px rgba(0,0,0,0.5);
+		    box-shadow: 0px 2px 6px -1px rgba(0,0,0,0.5);
+}
+#case-study-previews .case-study-preview:nth-child(2){
+	margin: 0 3% 50px 3%;
 }
 
 #case-study-previews .case-study-preview .case-preview-img {
-	width:  300px;
-	height: 320px;
-	margin-bottom: 10px; 
+	width:  100%;
+	height: 300px;
+	max-width: 300px;
+	margin: 0 auto; 
 	border-radius: 5px 5px 0 0;
     background-position: 50% 50%;
     background-size: cover;
 }
 
 #case-study-previews .case-study-preview h4 {
-	position: absolute;
-	display: inline-block;
+	display: block;
 	width: 100%;
-    top: 266px;
-    text-align: left;
-    left: 0;
+    text-align: center;
     padding: 5px 10px;
 	font-size: 40px;
-	background-color: rgba(0,0,0,0.5);
+	background-color: #444;
 	color: #fff;
 }
 
@@ -238,6 +232,11 @@
 	font-size: 16px;
 	line-height: 22px;
 	margin: 0;
+}
+
+#case-study-previews .case-study-preview .view-study-button {
+	width: 100%;
+	padding-bottom: 25px;
 }
 
 
@@ -279,7 +278,7 @@
 }
 
 #blog-preview .article-preview-body {
-    height: 150px;
+    height: 200px;
     width: 100%;
     display: inline-block;
     vertical-align: top;
@@ -324,14 +323,22 @@
 	font-size: 15px;
 }
 
-/*------- NEWSLETTER ------------*/
+/*------- CONTACT SECTION ------------*/
 /*-------------------------------*/
 
-#newsletter-form .form-inline {
+#contact-section .newsletter-section {
+	margin: 207px 0;
+	width: 48%;
+	float: left;
+	display: inline-block;
+}
+
+
+#contact-section .newsletter-form .form-inline {
 	text-align: center;
 }
 
-#newsletter-form .form-group {
+#contact-section .newsletter-form .form-group {
 	display: inline-block;
 	padding: 10px;
 	border-radius: 5px;
@@ -339,19 +346,257 @@
 	background-color: rgba(50,50,50,0.1);
 }
 
-#newsletter-form .form-inline input {
+#contact-section .newsletter-form .form-inline input {
 	width: 300px;
 	height: 34px;
 	margin-right: 10px;
 }
 
-#newsletter-form .form-inline .btn {
+#contact-section .newsletter-form .form-inline .btn {
 	width: 72px;
 	background-color: #8e0101;
 	color: #fff;
 }
 
-#newsletter-form #signup_success {
+#contact-section #signup_success {
 	margin-bottom: 64px;
 	display: none;
+}
+
+#contact-section .home-contact-form {
+	width: 50%;
+	margin: 0 1%;
+	padding: 0 10px;
+	float: right;
+	background-color: rgba(255,255,255,0.8);
+	border-radius: 5px;
+}
+
+#contact-section .home-contact-form h4 {
+	text-align: center;
+	margin: 10px;
+	font-size: 32px;
+}
+#contact-section .home-contact-form .form-group {
+	margin-bottom: 0;
+}
+
+#contact-section .home-contact-form .half-width {
+	width: 50%;
+	float: left;
+}
+
+#contact-section .home-contact-form .half-width:nth-child(odd) {
+	padding-right: 5px;
+}
+
+#contact-section .home-contact-form .half-width:nth-child(even) {
+	padding-left: 5px;
+}
+
+#contact-section .home-contact-form textarea {
+	resize: none;
+}
+
+#contact-section .home-contact-form .btn {
+	width: 100px;
+}
+
+.home-contact-form .wpcf7-response-output {
+	border: none;
+	clear: both;
+	margin: 0 5px 15px 5px;
+	padding: 0;
+	font-size: 12px;
+	text-align: center;
+}
+.home-contact-form .wpcf7-validation-errors {
+	color: red;
+}
+.home-contact-form .wpcf7-not-valid-tip {
+	position: absolute;
+	width: 200px;
+}
+
+@media only screen and (max-width:768px) {
+	/*SERVICES*/
+	#company-services .service-item {
+		width: 45%;
+		margin: 0 2% 50px 2%;
+	}
+
+	/*CASE STUDIES*/
+
+	#case-study-previews .studies-preview-list {
+		margin: 0 auto;
+		width: 100%;
+		text-align: center;
+	}
+
+	#case-study-previews .case-study-preview,
+	#case-study-previews .case-study-preview:nth-child(2) {
+		display: block;
+		position: relative;
+		width: 100%;
+		max-width: 500px;
+		margin: 0 auto 50px auto;
+	}
+
+	#case-study-previews .case-study-preview p {
+		width: 80%;
+		padding: 20px 10px 10px 10px;
+		margin: 0 auto;
+	}
+
+	/* BLOG AND IG */
+	#ig-preview {
+		display: none;
+	}
+
+	#blog-preview {
+		width: 100%;
+		padding: 0;
+		float: none;
+		display: block;
+		border-right: none;
+	}
+
+	#blog-preview .post-preview:nth-child(3),
+	#blog-preview .post-preview:nth-child(6),
+	#blog-preview .post-preview {
+	    width: 48%;
+	    margin: 0 1% 20px 1%;
+	    display: inline-block;
+	    float: left;
+	    overflow: hidden;
+	}
+
+	#blog-preview .article-preview-image {
+	    height: 200px;
+	    background-position:50% 50%;
+	    background-size: cover;
+	}
+
+	#blog-preview .article-preview-body {
+	    height: 80px;
+	}
+
+	#blog-preview .article-preview-body p,
+	#blog-preview .view-article {
+		display: none;
+	}
+
+	/*NEWSLETTER AND CONTACT*/
+
+	#contact-section .newsletter-section {
+		width: 100%;
+		margin: 0 auto;
+		float: none;
+		display: block;
+	}
+	
+	#contact-section .newsletter-form {
+		width: 100%;
+		max-width: 600px;
+		margin: 0 auto;
+		margin-bottom: 50px
+	}
+	#contact-section .newsletter-form .form-inline {
+		text-align: center;
+	}
+
+	#contact-section .newsletter-form .form-group {
+		width: 100%;
+	}
+
+	#contact-section .newsletter-form .form-inline input {
+		width: 80%;
+		display: inline-block;
+	}
+
+	#contact-section .home-contact-form {
+		width: 80%;
+		margin: 0 auto;
+		padding: 0;
+		float: none;
+		display: block;
+	}
+}
+
+@media only screen and (max-width:480px) {
+
+	section {
+		padding: 50px 0;
+	}
+
+	#company-services .service-item {
+		display: block;
+		width: 100%;
+		margin: 0 auto 50px auto;
+	}
+
+	#company-services .service-item .service-headline {
+		font-size: 28px;
+		margin-bottom: 20px;
+	}
+
+	#company-services .service-item .section-textblock {
+		font-size: 14px;
+		width: 70%;
+		margin: 0 auto;
+	}
+
+	#company-information .company-tagline .company-info-image.dga-mobile {
+		display: block;
+		width: 100%;
+	}
+	#company-information .company-tagline .company-info-image.dga-large {
+		display: none;
+	}
+
+	/*CASE STUDIES*/
+
+	#case-study-previews .case-study-preview:nth-child(2),
+	#case-study-previews .case-study-preview {
+		margin-bottom: 50px;
+		background-color: #fff;
+		border-radius: 0;
+		-webkit-box-shadow: none;
+		   -moz-box-shadow: none;
+			    box-shadow: none;
+	}
+
+	#case-study-previews .case-study-preview .case-preview-img {
+		border-radius: 0;
+	}
+
+	#case-study-previews .case-study-preview .view-study-button {
+		width: 100%;
+		padding-bottom: 25px;
+	}
+
+	/*BLOG POSTS*/
+
+	#blog-preview .post-preview:nth-child(3),
+	#blog-preview .post-preview:nth-child(6),
+	#blog-preview .post-preview {
+	    width: 100%;
+	    margin: 0;
+	    display: block;
+	    float: none;
+	}
+
+	#blog-preview .article-preview-body {
+		margin-left: 10px;
+	}
+
+	#contact-section .newsletter-form .form-inline input {
+		width: 100%;
+		display: block;
+	}
+
+	#contact-section .home-contact-form {
+		width: 95%;
+	}
+
 }

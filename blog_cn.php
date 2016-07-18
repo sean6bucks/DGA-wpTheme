@@ -1,7 +1,8 @@
-<?php
-	$blogPage = get_page_by_title( 'blog' ); 
+<?php 
+	$blogPage = get_page_by_title( 'blog' );
 	$currentPage = get_query_var( 'paged' );
-	if ($currentPage < 2) :?>
+	if ($currentPage < 2) :
+?>
 <section id="jumbotron-wrapper">
 	<div class="content-wrapper clear">
 	<?php query_posts('category_name=Featured&showposts=6'); while (have_posts()) : the_post(); ?>
@@ -16,7 +17,7 @@
 	        <div class="featured-body">
 	            <a href="<?php echo the_permalink(); ?>">
 	                <h1 class="featured-headline"><?php the_title(); ?></h1>
-	                <button class="btn btn-dg"><?php echo CFS()->get( 'read_more', $blogPage->ID ); ?></button>
+	                <button class="btn btn-dg"><?php echo CFS()->get( 'read_more_cn', $blogPage->ID ); ?></button>
 	            </a>
 	        </div>
 	    </div>
@@ -48,11 +49,10 @@
 	</div>
 </section>
 <?php endif; ?>
-
 <section id="blog-posts">
 	<div class="content-wrapper">
 		<div class="latest-posts">
-			<h2 class="section-headline"><?php echo CFS()->get( 'latest_posts_headline', $blogPage->ID ) ?></h2>
+			<h2 class="section-headline"><?php echo CFS()->get( 'latest_posts_headline_cn', $blogPage->ID ); ?></h2>
 			<div class="posts-wrapper">
 			    <?php get_template_part('loop'); ?>
 
@@ -61,7 +61,7 @@
 		</div>
 		<div class="blog-sidebar">
 			<div class="category-block">
-				<h3 class="section-headline"><?php echo CFS()->get( 'categories_headline', $blogPage->ID ) ?></h3>
+				<h3 class="section-headline"><?php echo CFS()->get( 'categories_headline_cn', $blogPage->ID ); ?></h3>
 				<ul class="sidebar-list"><?php wp_list_categories (array(
 					'title_li' => '',
 			        'exclude' => array( 1 )
@@ -70,7 +70,7 @@
 			</div>
 			<hr>
 			<div class="tags-block">
-				<h3 class="section-headline"><?php echo CFS()->get( 'popular_tags_headline', $blogPage->ID ) ?></h3>
+				<h3 class="section-headline"><?php echo CFS()->get( 'popular_tags_headline_cn', $blogPage->ID ); ?></h3>
 				<ul class="sidebar-list">
 					<?php
 						$tags = get_tags( array('orderby' => 'count', 'order' => 'DESC', 'number' => 5) );
@@ -82,7 +82,7 @@
 			</div>
 			<hr>
 			<div id="ig-feed" class="clear">
-				<h3 class="section-headline"><?php echo CFS()->get( 'instagram_headline' ) ?></h3>
+				<h3 class="section-headline"><?php echo CFS()->get( 'instagram_headline_cn', $blogPage->ID ); ?></h3>
 				<?php echo wdi_feed(array('id'=>'2')); ?>
 			</div>
 		</div>

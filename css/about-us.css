@@ -11,11 +11,10 @@
 
 #our-story .section-headline {
 	color: #8e0101;
-	margin-top: 20px;
 }
 
 #our-story .section-textblock {
-	text-indent: 50px;
+	text-align: center;
 	width: 70%;
 	font-size: 18px;
 	line-height: 32px;
@@ -33,11 +32,13 @@
 }
 
 #mission-values .about-info .info-headline {
+	color: #fff;
 	margin-bottom: 25px;
 	font-size: 30px
 }
 
 #mission-values .about-info .section-textblock {
+	color: #fff;
 	text-align: center;
 	font-size: 14px;
 }

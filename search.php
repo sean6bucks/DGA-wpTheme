@@ -17,7 +17,7 @@
 						<h3 class="section-headline">Categories</h3>
 						<ul class="sidebar-list"><?php wp_list_categories (array(
 							'title_li' => '',
-					        'exclude' => array( 1, 5 )
+					        'exclude' => array(1)
 					    )) ?>
 						</ul>
 					</div>

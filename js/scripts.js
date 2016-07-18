@@ -2,6 +2,13 @@
 	$(function () {
 		'use strict';
 
+		this.switchLanguage = function(lang) {
+			var urlPath = lang=='cn' ?
+				window.location.href.replace('dragongroup.asia', 'dragongroup.asia/cn') :
+				window.location.href.replace('/cn', '') ;
+			window.location.href = urlPath;
+		}
+
 		// SET SCROLL TOP MENU HEIGHT HIGHER IF URL IS TO A HASH
 		window.onload = function(){
 			if (window.location.hash) {
@@ -10,7 +17,7 @@
 		};
 
 		// SET FULL WINDOW HEIGHT ON INDEX JUMBOTRON
-		var isIndex = $('#index-header')[0] ? true : false
+		var isIndex = $('#index-header')[0] || $('#index_cn-header')[0] ? true : false;
 		// Set Jumbotron as full-height
 		if(isIndex){
 			var winHeight = $(window).height();
@@ -47,7 +54,7 @@
 		// Handle scroll to nav bar or first seciton
 		$('.header-jumbotron').on('click', function(event){
 			$('html, body').animate({
-	          scrollTop: $('#company-information').offset().top - 56
+	          scrollTop: $('#company-services').offset().top - 56
 	        }, 700, 'swing');
 		});
 
@@ -182,9 +189,9 @@
 	    }
 
 		// BEHAVIOR FOR NEWSLETTER FORM
-		$('#newsletter-form form').submit(function(event) {
+		$('#mc_embed_signup form').submit(function(event) {
 			event.preventDefault();
-			var $form = $('#newsletter-form form');
+			var $form = $('#mc_embed_signup form');
 
 			if(!$('#mce-EMAIL').val()) return false;
 
@@ -219,30 +226,7 @@
 		            }
 		        }
 		    });
-			// var data = { 
-			// 		apikey: '3b6f2b067d3f877adf79a50340f72ead-us2',
-			// 		id: '34772ee081',
-			// 		email: {
-			// 			email: $('#newsletter-email').val()
-			// 		}
-			// 	};
 
-			// $('#newsletter-submit').text('').html('<i class="fa fa-spinner fa-spin"></i>');
-
-			// // $.ajax({
-			// // 	type: 'POST',
-			// // 	url: 'https://us2.api.mailchimp.com/2.0/lists/subscribe',
-			// // 	data: data,
-			// // 	success: function(response){
-			// // 		console.log(response);
-			// // 	},
-			// // 	error: function(error){
-			// // 		console.log(error);
-			// // 	}
-			// // });
-
-			// List 34772ee081
-			// API 3b6f2b067d3f877adf79a50340f72ead-us2
 		});
 
 	});

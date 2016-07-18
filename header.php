@@ -2,8 +2,14 @@
 <html <?php language_attributes(); ?> class="no-js">
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
-		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
-
+		<title><?php bloginfo('name'); ?></title>
+	
+		<script>
+		// REDIRECT TO CN IF BROWSER SET TO 
+			if(navigator.language.indexOf('zh')>=0 && window.location.pathname.indexOf('cn')<0) {
+				window.location.href = '/cn';
+			}
+		</script>
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
 		<link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" rel="shortcut icon">
 		<link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
@@ -21,16 +27,32 @@
 			tests: {}
 		});
 		</script>
-
+		
+		<!-- scripts for share buttons -->
+		<script>
+			(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<script>
+			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		</script>
 	</head>
 	<body <?php body_class(); ?>>
-
+		
+		<?php 
+			$indexPage = get_page_by_title( 'index' );
+		?>
 		<!-- wrapper -->
 		<div class="wrapper">
 			<!-- header -->
 			<header id="<?php echo get_the_title ()  ?>-header" class="header clear" role="banner">
 
-			<?php if (get_the_title () == 'index'): ?>
+			<?php if ( get_the_title() == 'index' || get_the_title() == 'index_cn' ) : ?>
 				<!-- jumbotron img-->
 				<div class="load-shade">
 					<div class="spin-wrapper">
@@ -43,17 +65,26 @@
 				<!-- /jumbotron img -->
 			<?php endif; ?>
 				<!-- nav -->
-				<nav id="main-nav" class="nav" role="navigation">
+					
+				<?php if (CFS()->get( 'chinese_page' )) : ?>
+				
+				<!-- CHINESE NAV -->
+				
+				<nav id="main-nav" class="nav chinese_nav" role="navigation">
 					<div class="nav-title">
-						<a href="<?php echo home_url() ?>"><img class="logo-full" src="<?php echo get_template_directory_uri(); ?>/img/dg_logo_full_sm_white.png" /></a>
+						<a href="/cn"><img class="logo-full" src="<?php echo get_template_directory_uri(); ?>/img/dg_logo_full_sm_white.png" /></a>
 					</div>
-
+					
 					<ul class="nav-list">
 						<li class="nav-item">
-							<a href="/about-us">ABOUT US</a>
+							<a href="/cn/about-us">
+								<?php echo CFS()->get( 'about_us_cn', $indexPage->ID ); ?>
+							</a>
 							<div id="about-us-dropdown" class="dropdown-content">
-								<a href="/about-us#our-team">OUR TEAM</a>
-								<a href="/about-us#careers">CAREERS</a>
+								<a href="/cn/about-us#our-team">
+									<?php echo CFS()->get( 'our_team_cn', $indexPage->ID ); ?>
+								</a>
+								<a href="/cn/about-us#careers"><?php echo CFS()->get( 'careers_cn', $indexPage->ID ); ?></a>
 							</div>
 						</li>
 						<?php 
@@ -62,19 +93,101 @@
 							if (count($studies)) : 
 						?>
 						<li class="nav-item">
-							<a href="/case-studies">CASE STUDIES</a>
+							<a href="/cn/case-studies"><?php echo CFS()->get( 'case_studies_cn', $indexPage->ID ); ?></a>
 							<div id="case-studies-dropdown" class="dropdown-content">
-								<a href="/case-studies#clients">CLIENTS</a>
+								<a href="/cn/case-studies#clients"><?php echo CFS()->get( 'clients_cn', $indexPage->ID ); ?></a>
 							</div>
 						</li>
 						<?php else : ?>
 						<li class="nav-item">
-							<a href="/case-studies#clients">CLIENTS</a>
+							<a href="/cn/case-studies#clients"><?php echo CFS()->get( 'clients_cn', $indexPage->ID ); ?></a>
 						</li>
 						<?php endif; ?>
-						<li class="nav-item"><a href="/blog">BLOG</a></li>
-						<li class="nav-item"><a href="http://www.dragonadventureschina.com">DRAGON ADVENTURES</a></li>
+						<li class="nav-item">
+							<a href="/cn/blog"><?php echo CFS()->get( 'blog_cn', $indexPage->ID ); ?></a>
+						</li>
+						<li class="nav-item">
+							<a href="http://www.dragonadventureschina.com"><?php echo CFS()->get( 'dragon_adventures_cn', $indexPage->ID ); ?></a>
+						</li>
+						<li class="nav-item">
+							<a onclick="switchLanguage();">EN</a>
+						</li>
 					</ul>
+				</nav>
+
+				<!-- collapsed nav -->
+				<nav class="nav fixed-nav" role="navigation">
+					<div class="nav-title">
+						<a href="/cn"><img class="logo" src="<?php echo get_template_directory_uri(); ?>/img/dg_logo_full_sm_white.png" /></a>
+					</div>
+
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a href="/cn/about-us"><?php echo CFS()->get( 'about_us_cn', $indexPage->ID ); ?></a>
+							<div id="about-us-dropdown" class="dropdown-content">
+								<a href="/cn/about-us#our-team"><?php echo CFS()->get( 'our_team_cn', $indexPage->ID ); ?></a>
+								<a href="/cn/about-us#careers"><?php echo CFS()->get( 'careers_cn', $indexPage->ID ); ?></a>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a href="/cn/case-studies"><?php echo CFS()->get( 'case_studies_cn', $indexPage->ID ); ?></a>
+							<div id="case-studies-dropdown" class="dropdown-content">
+								<a href="/cn/case-studies#clients"><?php echo CFS()->get( 'clients_cn', $indexPage->ID ); ?></a>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a href="/cn/blog"><?php echo CFS()->get( 'blog_cn', $indexPage->ID ); ?></a>
+						</li>
+						<li class="nav-item">
+							<a href="http://www.dragonadventureschina.com"><?php echo CFS()->get( 'dragon_adventures_cn', $indexPage->ID ); ?></a>
+						</li>
+						<li class="nav-item">
+							<a onclick="switchLanguage();">ENG</a>
+						</li>
+					</ul>
+				</nav>
+
+				<!-- /collapsed nav -->
+
+				<?php else : ?>
+				<nav id="main-nav" class="nav" role="navigation">
+					<div class="nav-title">
+						<a href="<?php echo home_url() ?>">
+							<img class="logo-full" src="<?php echo get_template_directory_uri(); ?>/img/dg_logo_full_sm_white.png" />
+						</a>
+					</div>
+					<!-- ENGLISH NAV -->
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a href="/about-us"><?php echo CFS()->get( 'about_us', $indexPage->ID ); ?></a>
+							<div id="about-us-dropdown" class="dropdown-content">
+								<a href="/about-us#our-team"><?php echo CFS()->get( 'our_team', $indexPage->ID ); ?></a>
+								<a href="/about-us#careers"><?php echo CFS()->get( 'careers', $indexPage->ID ); ?></a>
+							</div>
+						</li>
+						<?php 
+							$studiesPage = get_page_by_title( 'case-studies' );
+							$studies = CFS()->get( 'case_studies', $studiesPage->ID );
+							if (count($studies)) : 
+						?>
+						<li class="nav-item">
+							<a href="/case-studies"><?php echo CFS()->get( 'case_studies', $indexPage->ID ); ?></a>
+							<div id="case-studies-dropdown" class="dropdown-content">
+								<a href="/case-studies#clients"><?php echo CFS()->get( 'clients', $indexPage->ID ); ?></a>
+							</div>
+						</li>
+						<?php else : ?>
+						<li class="nav-item">
+							<a href="/case-studies#clients"><?php echo CFS()->get( 'clients', $indexPage->ID ); ?></a>
+						</li>
+						<?php endif; ?>
+						<li class="nav-item"><a href="/blog"><?php echo CFS()->get( 'blog', $indexPage->ID ); ?></a></li>
+						<li class="nav-item"><a href="http://www.dragonadventureschina.com"><?php echo CFS()->get( 'dragon_adventures', $indexPage->ID ); ?></a></li>
+						<li class="nav-item">
+							<a onclick="switchLanguage('cn');">中文</a>
+						</li>
+					</ul>
+
 				</nav>
 				<!-- /nav -->
 				
@@ -86,22 +199,31 @@
 
 					<ul class="nav-list">
 						<li class="nav-item">
-							<a href="/about-us">ABOUT US</a>
+							<a href="/about-us"><?php echo CFS()->get( 'about_us', $indexPage->ID ); ?></a>
 							<div id="about-us-dropdown" class="dropdown-content">
-								<a href="/about-us#our-team">OUR TEAM</a>
-								<a href="/about-us#careers">CAREERS</a>
+								<a href="/about-us#our-team"><?php echo CFS()->get( 'our_team', $indexPage->ID ); ?></a>
+								<a href="/about-us#careers"><?php echo CFS()->get( 'careers', $indexPage->ID ); ?></a>
 							</div>
 						</li>
 						<li class="nav-item">
-							<a href="/case-studies">CASE STUDIES</a>
+							<a href="/case-studies"><?php echo CFS()->get( 'case_studies', $indexPage->ID ); ?></a>
 							<div id="case-studies-dropdown" class="dropdown-content">
-								<a href="/case-studies#clients">CLIENTS</a>
+								<a href="/case-studies#clients"><?php echo CFS()->get( 'clients', $indexPage->ID ); ?></a>
 							</div>
 						</li>
-						<li class="nav-item"><a href="/blog">BLOG</a></li>
-						<li class="nav-item"><a href="http://www.dragonadventureschina.com">DRAGON ADVENTURES</a></li>
+						<li class="nav-item">
+							<a href="/blog"><?php echo CFS()->get( 'blog', $indexPage->ID ); ?></a>
+						</li>
+						<li class="nav-item">
+							<a href="http://www.dragonadventureschina.com"><?php echo CFS()->get( 'dragon_adventures', $indexPage->ID ); ?></a>
+						</li>
+						<li class="nav-item">
+							<a onclick="switchLanguage('cn');">中文</a>
+						</li>
 					</ul>
 				</nav>
+
 				<!-- /collapsed nav -->
+				<?php endif; ?>
 			</header>
 			<!-- /header -->
