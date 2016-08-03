@@ -43,8 +43,8 @@
 
 #case-studies .case-study-block .study-item .study-textblock .study-headline {
 	color: #ffffff;
-	font-size: 60px;
-	margin: 65px auto 0 auto;
+	font-size: 40px;
+	margin: 80px auto 0 auto;
 }
 
 #case-studies .case-study-block .study-item .study-textblock .study-description {
@@ -132,5 +132,38 @@
 }
 
 
+@media only screen and (max-width:768px) {
 
+	
+	
+}
+
+@media only screen and (max-width:480px) {
+	
+	#case-studies .studies-list {
+		margin: 0;
+	}
+	#case-studies .studies-list .case-study-block .study-item {
+		display: block;
+		width: 250px;
+		height: 250px;
+		position: relative;
+		margin: 25px auto;
+	}
+
+	#clients .clients-list .client-item {
+		width: 120px;
+		padding: 0 15px;
+	}
+
+	#inquiry .inquiry-form {
+		width: 95%;
+	}
+
+	#inquiry .inquiry-form .btn {
+		width: 90%;
+		margin: 20px auto 0 auto;
+	}
+
+}
 

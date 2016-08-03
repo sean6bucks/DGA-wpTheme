@@ -1,5 +1,13 @@
-<?php query_posts('post_type=post&posts_per_page=10&paged='.get_query_var('paged'));
-	  if (have_posts()): while (have_posts()) : the_post(); ?>
+<?php //query_posts('post_type=post&posts_per_page=10&paged='.get_query_var('paged'));
+	$args = array(
+		'meta_key'     => 'post_language',
+		'meta_value'   => 'English',
+		'post_type'    => 'post',
+		'posts_per_page' => 10,
+		'paged' => get_query_var('paged')
+	);
+	query_posts($args);
+	if (have_posts()): while (have_posts()) : the_post(); ?>
 
 	<!-- article -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

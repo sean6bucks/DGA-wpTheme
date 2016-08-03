@@ -175,7 +175,7 @@
 	border-right: 1px solid #ddd;
 }
 
-#blog-posts .latest-posts .posts-wrapper .post{
+#blog-posts .latest-posts .posts-wrapper .post {
 	width: 98%;
 	max-width: 800px;
 	margin: 0 auto 30px auto;
@@ -183,12 +183,18 @@
 	border-bottom: 1px solid #ddd;
 }
 
+#blog-posts.cn-blog-posts .latest-posts {
+	display: block;
+	border: none;
+}
+
 #blog-posts .posts-wrapper .post .preview-image {
 	display: inline-block;
 	vertical-align: top;
     height: 220px;
-    width: 350px;
-    margin: 15px 15px 15px 0;
+    max-width: 350px;
+    width: 50%;
+    margin: 15px 1% 15px 0;
     border-radius: 2px;
     background-position:50% 50%;
     background-size: cover;
@@ -330,7 +336,7 @@
 }
 
 .blog-post .post-category a {
-	color: #92AEB7;
+	color: #8e0101;
 }
 
 .blog-post .post-category a:hover {
@@ -345,8 +351,11 @@
 }
 
 .blog-post .text-wrapper p {
-    font-size: 14pt;
-    line-height: 18pt;
+    font-size: 15pt;
+    padding: 0 50px;
+    text-indent: 10px;
+    font-family: 'Baskerville';
+    line-height: 17pt;
 }
 
 .blog-post .text-wrapper>p, .blog-post blockquote, .blog-post .text-wrapper>img {
@@ -363,7 +372,7 @@
     font-weight: 300;
     font-style: italic;
     text-align: center;
-    color: #92AEB7;
+    color: #8e0101;
 }
 
 .blog-post .post-tags {
@@ -465,4 +474,65 @@
 	vertical-align: top;
 	margin: 0 15px;
 	display: inline-block;
+}
+
+
+@media only screen and (max-width:768px) {
+
+	#blog-posts .blog-sidebar {
+		display: none;
+	}
+	#blog-posts .latest-posts {
+		width: 100%;
+		border: none;
+	}
+	#blog-posts .posts-wrapper .post .preview-image {
+		width: 40%;
+	}
+	#searchbox {
+		width: 240px;
+		position: initial;
+		margin: 0 auto;
+		display: block;
+	}
+	
+}
+
+@media only screen and (max-width:480px) {
+	
+	#jumbotron-wrapper {
+	    display: none;
+	}
+
+	.blog-post .text-wrapper {
+		width: 100%;
+		padding: 0 15px;
+	}
+
+	#blog-posts .posts-wrapper .post .preview-image,
+	#blog-posts .posts-wrapper .post .preview-body {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	#blog-posts .posts-wrapper .post .preview-image {
+		margin: 15px 0;
+	}
+	#blog-posts .posts-wrapper .post .preview-body {
+		height: initial;
+		padding: 0 10px;
+	}
+	#blog-posts .posts-wrapper .post .preview-body p {
+		display: none;
+	}
+
+	.blog-post .section-headline {
+		font-size: 30px;
+		margin: 0 10px 10px 10px;
+	}
+
+	.post-jumbotron {
+		height: 250px;
+	}
+
 }

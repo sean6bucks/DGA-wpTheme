@@ -59,7 +59,6 @@
 #our-team .company-bios .bio-item {
 	padding: 0 15px 30px 15px;
 	display: inline-block;
-	max-width: 250px;
 }
 
 #our-team .company-bios .bio-item .bio-img {
@@ -149,4 +148,80 @@
 	width: 100%;
 }
 
+@media only screen and (max-width:768px) {
 
+	#our-story {
+		padding: 75px 0;
+	}
+
+	#our-story .info-headline {
+		margin-bottom: 25px;
+	}
+	#our-story .section-textblock {
+		width: 100%;
+		padding: 0 2%;
+	}
+
+	#mission-values {
+		padding: 75px 50px;
+	}
+
+	#mission-values .section-textblock {
+		margin-bottom: 40px;
+	}
+
+	#our-team .section-headline {
+		margin-bottom: 50px;
+	}
+
+	#careers {
+		padding: 50px 25px;
+	}
+
+	#careers .section-subtext {
+		width: 90%;
+		max-width: 700px;
+		margin: -25px auto 30px auto;
+	}
+	
+}
+
+@media only screen and (max-width:480px) {
+	section {
+		padding: 50px 0;
+	}
+	#about-us-jumbotron {
+		height: 300px;
+	}
+
+	#our-story .section-textblock {
+		padding: 0 15px;
+		font-size: 16px;
+		line-height: 20px;
+	}
+
+	#mission-values {
+		padding: 75px 15px;
+	}
+	#mission-values .about-info {
+		padding: 0;
+	}
+
+	#our-team .bio-item {
+		width: 100%;
+	}
+	#careers {
+		padding: 50px 15px;
+	}
+	#careers .section-subtext {
+		font-size: 20px;
+	}
+	#careers .jobs-list {
+		width: 98%;
+	}
+	#careers .jobs-list .job-item .panel-body .apply-btn {
+		width: 90%;
+		max-width: 300px;
+	}
+
+}

@@ -23,7 +23,7 @@
 						<img class="wechat-code" src="<?php echo get_template_directory_uri(); ?>/img/icons/DGA_QRcode.jpg">
 					</div>
 					<div class="copyright">
-						<p>&copy; <?php echo date('Y'); ?><?php echo CFS()->get( 'copyright' ) ?></p>
+						<p>&copy; <?php echo date('Y'); ?><?php echo CFS()->get( 'copyright', $indexPage->ID  ) ?></p>
 					</div>
 				</div>
 			</footer>

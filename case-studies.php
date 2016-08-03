@@ -3,9 +3,9 @@ if (count($studies)) : ?>
 <section id="case-studies">
 	<div class="content-wrapper">
 		<h2 class="section-headline"><?php echo CFS()->get( 'case_studies_headline' ) ?></h2>
-		<div class="studies-list">
+		<div class="studies-list clear">
 			<?php foreach ( $studies as $key=>$study ) { ?>
-			<div class="case-study-block col-sm-4">
+			<div class="case-study-block col-sm-4 col-xs-12">
 				<a href="#<?php echo $study['case_slug'] ?>" class="study-item">
 					<img src="<?php echo $study['case_company_logo'] ?>" >
 					<div class="study-textblock">

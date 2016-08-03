@@ -1,22 +1,13 @@
-<?php 
-
-// args
-$args = array(
-	'numberposts'	=> -1,
-	'posts_per_page'=> 10,
-	'post_type'		=> 'post',
-	'meta_key'		=> 'chinese_page',
-	'meta_value'	=> true
-);
-
-
-// query
-$the_query = new WP_Query( $args );
-
-?>
-<?php if( $the_query->have_posts() ): ?>
-
-<?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+ <?php 
+ 	$args = array(
+		'meta_key'     => 'post_language',
+		'meta_value'   => 'Chinese',
+		'post_type'    => 'post',
+		'posts_per_page' => 10,
+		'paged' => get_query_var('paged')
+	);
+	query_posts($args);
+ 	if (have_posts()): while (have_posts()) : the_post(); ?>
 
 	<!-- article -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -57,5 +48,3 @@ $the_query = new WP_Query( $args );
 	<!-- /article -->
 
 <?php endif; ?>
-
-<?php wp_reset_query();	 // Restore global post data stomped by the_post(). ?>

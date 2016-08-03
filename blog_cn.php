@@ -5,7 +5,12 @@
 ?>
 <section id="jumbotron-wrapper">
 	<div class="content-wrapper clear">
-	<?php query_posts('category_name=Featured&showposts=6'); while (have_posts()) : the_post(); ?>
+	<?php $args = array(
+		'meta_key'     => 'post_language',
+		'meta_value'   => 'Chinese',
+		'category_name'    => 'Featured'
+	);
+	query_posts($args); while (have_posts()) : the_post(); ?>
 
 	<?php if ( has_post_thumbnail()) : 
 	    $post_image_id = get_post_thumbnail_id($post_to_use->ID);
@@ -37,7 +42,12 @@
 	<div class="slider-nav">
 	    <a class="arrow-prev"><img src="<?php bloginfo('template_directory'); ?>/img/icons/arrow-prev.png"></a>
 	    <ul class="slider-dots">
-	        <?php query_posts('category_name=Featured&showposts=6'); while (have_posts()) : the_post(); ?>
+	        <?php  $args = array(
+				'meta_key'     => 'post_language',
+				'meta_value'   => 'Chinese',
+				'category_name'    => 'Featured'
+			);
+			query_posts($args); while (have_posts()) : the_post(); ?>
 
 			<li class="dot">&bull;</li>
 
@@ -54,7 +64,7 @@
 		<div class="latest-posts">
 			<h2 class="section-headline"><?php echo CFS()->get( 'latest_posts_headline_cn', $blogPage->ID ); ?></h2>
 			<div class="posts-wrapper">
-			    <?php get_template_part('loop'); ?>
+			    <?php get_template_part('loop_cn'); ?>
 
 			    <?php get_template_part('pagination'); ?>
 			</div>

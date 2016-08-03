@@ -29,9 +29,14 @@
 #index-header .header-jumbotron,
 #index_cn-header .header-jumbotron {
 	width: 100%;
-	height: 700px;
+	height: 100vh;
 	background-position:50% 50%;
     background-size: cover;
+}
+
+#index-header .mobile-jumbotron,
+#index_cn-header .mobile-jumbotron {
+	display: none;
 }
 
 #index-header #main-nav.nav,
@@ -327,10 +332,8 @@
 /*-------------------------------*/
 
 #contact-section .newsletter-section {
-	margin: 207px 0;
-	width: 48%;
-	float: left;
-	display: inline-block;
+	margin: 150px auto;
+	display: block;
 }
 
 
@@ -363,62 +366,15 @@
 	display: none;
 }
 
-#contact-section .home-contact-form {
-	width: 50%;
-	margin: 0 1%;
-	padding: 0 10px;
-	float: right;
-	background-color: rgba(255,255,255,0.8);
-	border-radius: 5px;
-}
-
-#contact-section .home-contact-form h4 {
-	text-align: center;
-	margin: 10px;
-	font-size: 32px;
-}
-#contact-section .home-contact-form .form-group {
-	margin-bottom: 0;
-}
-
-#contact-section .home-contact-form .half-width {
-	width: 50%;
-	float: left;
-}
-
-#contact-section .home-contact-form .half-width:nth-child(odd) {
-	padding-right: 5px;
-}
-
-#contact-section .home-contact-form .half-width:nth-child(even) {
-	padding-left: 5px;
-}
-
-#contact-section .home-contact-form textarea {
-	resize: none;
-}
-
-#contact-section .home-contact-form .btn {
-	width: 100px;
-}
-
-.home-contact-form .wpcf7-response-output {
-	border: none;
-	clear: both;
-	margin: 0 5px 15px 5px;
-	padding: 0;
-	font-size: 12px;
-	text-align: center;
-}
-.home-contact-form .wpcf7-validation-errors {
-	color: red;
-}
-.home-contact-form .wpcf7-not-valid-tip {
-	position: absolute;
-	width: 200px;
-}
 
 @media only screen and (max-width:768px) {
+
+	#index-header .header-jumbotron,
+	#index_cn-header .header-jumbotron {
+		height: 420px;
+    	background-position: 46% 50%;
+	}
+
 	/*SERVICES*/
 	#company-services .service-item {
 		width: 45%;
@@ -437,7 +393,7 @@
 	#case-study-previews .case-study-preview:nth-child(2) {
 		display: block;
 		position: relative;
-		width: 100%;
+		width: 95%;
 		max-width: 500px;
 		margin: 0 auto 50px auto;
 	}
@@ -490,9 +446,7 @@
 
 	#contact-section .newsletter-section {
 		width: 100%;
-		margin: 0 auto;
-		float: none;
-		display: block;
+		margin: 25px auto;
 	}
 	
 	#contact-section .newsletter-form {
@@ -514,13 +468,6 @@
 		display: inline-block;
 	}
 
-	#contact-section .home-contact-form {
-		width: 80%;
-		margin: 0 auto;
-		padding: 0;
-		float: none;
-		display: block;
-	}
 }
 
 @media only screen and (max-width:480px) {
@@ -560,10 +507,6 @@
 	#case-study-previews .case-study-preview {
 		margin-bottom: 50px;
 		background-color: #fff;
-		border-radius: 0;
-		-webkit-box-shadow: none;
-		   -moz-box-shadow: none;
-			    box-shadow: none;
 	}
 
 	#case-study-previews .case-study-preview .case-preview-img {
@@ -595,7 +538,7 @@
 		display: block;
 	}
 
-	#contact-section .home-contact-form {
+	#contactModal .home-contact-form {
 		width: 95%;
 	}
 

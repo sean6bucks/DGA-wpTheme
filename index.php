@@ -1,4 +1,12 @@
 <?php $indexPage = get_page_by_title( 'index' ); ?>
+<div id="contactModal" class="modal">
+	<div class="home-contact-form">
+		<h4><?php echo CFS()->get( 'contact_us_headline', $indexPage->ID ) ?></h4>
+		<?php echo do_shortcode('[contact-form-7 title="contact_form"]'); ?>
+		<div id="form-messages"></div>
+	</div> 
+</div>
+
 <section id="company-services" class="index-section">
 	<div class="content-wrapper">
 		<h3 class="section-headline"><?php echo CFS()->get( 'services_headline', $indexPage->ID ) ?></h3>
@@ -59,7 +67,13 @@
 		<div id="blog-preview" class="clear">
 			<h3 class="section-headline"><?php echo CFS()->get( 'blog_posts_headline', $indexPage->ID ) ?></h3>
 			<?php // GRAB THE 6 MOST VIEWED POSTS
-				$popularpost = new WP_Query( array( 'posts_per_page' => 6,  'order' => 'DESC'  ) );
+				$popularpost = new WP_Query( array( 
+					'meta_key'     => 'post_language',
+					'meta_value'   => 'English',
+					'post_type'    => 'post',
+					'posts_per_page' => 6,  
+					'order' => 'DESC'  
+				) );
 				while ( $popularpost->have_posts() ) : $popularpost->the_post(); ?>
 
 				<article class="post-preview" id="post-<?php the_ID(); ?>">
@@ -83,7 +97,8 @@
 						<!-- post title -->
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 							<h1 class="article-preview-headline"><?php the_title(); ?></h1>
-							<h6 class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></h6></a>
+							<h6 class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></h6>
+						</a>
 							<?php html5wp_excerpt('html5wp_index'); ?>
 					</div>
 				</article>
@@ -109,7 +124,7 @@
 						<input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="<?php echo CFS()->get( 'email_placeholder', $indexPage->ID ) ?>" required>
 					    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 					    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_7acb0e539eedef8267af1f8cb_34772ee081" tabindex="-1" value=""></div>
-					    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-default"><?php echo CFS()->get( 'submit_button' ) ?></button>
+					    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-default"><?php echo CFS()->get( 'submit_button', $indexPage->ID ) ?></button>
 					</div>
 				</form>
 			</div>
@@ -118,10 +133,7 @@
 				<h4 class="section-subtext"><?php echo CFS()->get( 'success_confirmation', $indexPage->ID ) ?></h4>
 			</div>
 		</div>
-		<div class="home-contact-form">
-			<h4><?php echo CFS()->get( 'contact_us_headline', $indexPage->ID ) ?></h4>
-			<?php echo do_shortcode('[contact-form-7 title="contact_form"]'); ?>
-			<div id="form-messages"></div>
-		</div>
 	</div>
 </section>
+
+<button class="btn contact-btn" type="button" data-toggle="modal" data-target="#contactModal"><?php echo CFS()->get( 'contact_us_btn', $indexPage->ID ) ?></button>

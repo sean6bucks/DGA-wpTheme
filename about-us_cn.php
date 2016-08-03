@@ -11,7 +11,7 @@
 	</div>
 </section>
 
-<section id="mission-values" style="background-image: url('<?php echo CFS()->get( 'about_info_background' ); ?>')">
+<section id="mission-values" style="background-image: url('<?php echo CFS()->get( 'about_info_background', $aboutPage->ID ); ?>')">
 	<div class="content-wrapper">
 		<?php $blocks = CFS()->get( 'about_blocks', $aboutPage->ID );
 			foreach ( $blocks as $block ) { ?>
@@ -27,12 +27,12 @@
 	<div class="content-wrapper">
 		<h3 class="section-headline"><?php echo CFS()->get( 'team_headline_cn', $aboutPage->ID ); ?></h3>
 		<div class="company-bios clear">
-			<?php $members = CFS()->get( 'team_members', $aboutPage->ID );
+			<?php $members = CFS()->get( 'team_members_cn', $aboutPage->ID );
 			foreach ( $members as $key=>$member ) { ?>
 			<div class="bio-item col-xs-3">
-				<div class="bio-img" style="background-image:url('<?php echo $member['profile_image'] ?>')">
+				<div class="bio-img" style="background-image:url('<?php echo $member['profile_image_cn'] ?>')">
 					<div class="bio-info">
-						<h5 class="bio-name"><?php echo $member['profile_name'] ?></h5>
+						<h5 class="bio-name"><?php echo $member['profile_name_cn'] ?></h5>
 						<p class="bio-job"><?php echo $member['profile_position_cn'] ?></p>
 					</div>
 					<div class="bio-text">
@@ -53,7 +53,7 @@
 		<h3 class="section-headline"><?php echo CFS()->get( 'careers_headline_cn', $aboutPage->ID ); ?></h3>
 		<h4 class="section-subtext"><?php echo CFS()->get( 'careers_text_cn', $aboutPage->ID ); ?></h4>
 		<?php 
-			$jobs = CFS()->get( 'job_postings', $aboutPage->ID );
+			$jobs = CFS()->get( 'job_postings_cn', $aboutPage->ID );
 			if (count($jobs)) : 
 		?>
 		<div class="jobs-list">
@@ -62,12 +62,12 @@
 				<?php foreach ( $jobs as $key=>$job ) { ?>
 				<div class="job-item panel panel-default">
 					<div class="panel-heading">
-						<a data-toggle="collapse" data-parent="#accordion" href="#<?php echo $job['job_slug'] ?>">
+						<a data-toggle="collapse" data-parent="#accordion" href="#<?php echo $job['job_slug_cn'] ?>">
 							<h4><?php echo $job['job_title_cn'] ?></h4>
 							<p><?php echo $job['job_tagline_cn'] ?></p>
 						</a>
 					</div>
-					<div id="<?php echo $job['job_slug'] ?>" class="panel-collapse collapse">
+					<div id="<?php echo $job['job_slug_cn'] ?>" class="panel-collapse collapse">
 						<div class="panel-body">
 							<p class="full-description">
 								<?php echo $job['job_description_cn'] ?>

@@ -12,7 +12,7 @@
 	<div class="content-wrapper">
 		<?php $blocks = CFS()->get( 'about_blocks' );
 			foreach ( $blocks as $block ) { ?>
-		<div class="about-info col-xs-4">
+		<div class="about-info col-sm-4">
 			<h5 class="info-headline text-center"><?php echo $block['info_headline']; ?></h5>
 			<p class="section-textblock"><?php echo $block['info_text']; ?></p>
 		</div>
@@ -26,7 +26,7 @@
 		<div class="company-bios clear">
 			<?php $members = CFS()->get( 'team_members' );
 			foreach ( $members as $key=>$member ) { ?>
-			<div class="bio-item col-xs-3">
+			<div class="bio-item col-sm-3 col-xs-6">
 				<div class="bio-img" style="background-image:url('<?php echo $member['profile_image'] ?>')">
 					<div class="bio-info">
 						<h5 class="bio-name"><?php echo $member['profile_name'] ?></h5>

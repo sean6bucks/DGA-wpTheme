@@ -3,59 +3,83 @@
 		'use strict';
 
 		this.switchLanguage = function(lang) {
+
 			var urlPath = lang=='cn' ?
-				window.location.href.replace('dragongroup.asia', 'dragongroup.asia/cn') :
-				window.location.href.replace('/cn', '') ;
+				window.location.pathname.replace('/', '/cn/') :
+				window.location.pathname.replace('/cn/', '/') ;
 			window.location.href = urlPath;
 		}
 
-		// SET SCROLL TOP MENU HEIGHT HIGHER IF URL IS TO A HASH
-		window.onload = function(){
-			if (window.location.hash) {
-				$(document).scrollTop( $(document).scrollTop() - 75);
-			}
-		};
-
-		// SET FULL WINDOW HEIGHT ON INDEX JUMBOTRON
 		var isIndex = $('#index-header')[0] || $('#index_cn-header')[0] ? true : false;
-		// Set Jumbotron as full-height
-		if(isIndex){
-			var winHeight = $(window).height();
-			// Keep Minimum height at 700px
-			if(winHeight<700) winHeight = 700;
-			$('.header-jumbotron').height(winHeight);
 
-			// Fade out loader
-			$('.load-shade').fadeOut(700, function(){
-				$('.load-shade').remove();
+		if( $(window).width() > 768) {
+			// SET SCROLL TOP MENU HEIGHT HIGHER IF URL IS TO A HASH
+			window.onload = function(){
+				if (window.location.hash) {
+					$(document).scrollTop( $(document).scrollTop() - 75);
+				}
+			};
+
+
+		} else {
+
+			$('.menu-open .fa').click(function(){
+				$('.mobile-menu').addClass('open');
 			});
-		};
+			$('.menu-close .fa').click(function(){
+				$('.mobile-menu').removeClass('open');
+			});
+		}
 
-		// SHOW AND HIDE FIXED HEADER ON PAGE SCROLL
-		var offsetBottom = isIndex ? $('.header-jumbotron').height() - 80 : 250;
-        $(window).scroll(function(){
-            if( $(document).scrollTop() > offsetBottom ) {
-                $('.fixed-nav').slideDown(300);
-            } else {
-                $('.fixed-nav').slideUp(100);
-            }
+		if( $(window).width() > 480) {
 
-        });
+			// SHOW AND HIDE FIXED HEADER ON PAGE SCROLL
+			var offsetBottom = isIndex ? $('.header-jumbotron').height() - 80 : 250;
+	        $(window).scroll(function(){
+	            if( $(document).scrollTop() > offsetBottom ) {
+	                $('.fixed-nav').slideDown(300);
+	            } else {
+	                $('.fixed-nav').slideUp(100);
+	            }
 
-        // PREVENT MENU DROPDOWNS FROM QUEING
-        $('.nav-item').hover(
-		 	function() {
-		    	$(this).find('.dropdown-content').stop(true).slideDown(200);
-		  	}, function() {
-		    	$(this).find('.dropdown-content').stop(true).slideUp(200);
-		  	}
-		);
+	        });
 
-		// Handle scroll to nav bar or first seciton
-		$('.header-jumbotron').on('click', function(event){
-			$('html, body').animate({
-	          scrollTop: $('#company-services').offset().top - 56
-	        }, 700, 'swing');
+	        var pageBottom = $(document).height() - 140;
+	        $(window).scroll(function(){
+
+	            if( ( $(document).scrollTop() < pageBottom - 782 ) && ( $(document).scrollTop() > $('.header-jumbotron').height() - 80 ) ) {
+	                $('.contact-btn').css({ 
+	                	"bottom": "34px",
+	                	"opacity": "1"
+	                });
+	            } else {
+	                $('.contact-btn').css({ 
+	                	"bottom": "0",
+	                	"opacity": "0"
+	                });
+	            }
+
+	        });
+
+			// PREVENT MENU DROPDOWNS FROM QUEING
+	        $('.nav-item').hover(
+			 	function() {
+			    	$(this).find('.dropdown-content').stop(true).slideDown(200);
+			  	}, function() {
+			    	$(this).find('.dropdown-content').stop(true).slideUp(200);
+			  	}
+			);
+
+			// Handle scroll to nav bar or first seciton
+			$('.header-jumbotron').on('click', function(event){
+				$('html, body').animate({
+		          scrollTop: $('#company-services').offset().top - 56
+		        }, 700, 'swing');
+			});
+		}
+
+		$('#contactModal').on('shown.bs.modal', function () {
+			$('#indexContactName').focus()
 		});
 
 		// PROFILE BIO SCROLL OVER
@@ -188,6 +212,23 @@
 	        });
 	    }
 
+	    // SMOTH SCROLLING FOR CASE STUDIES
+
+	    $(function() {
+			$('a[href*="#"]:not([href="#"])').click(function() {
+				if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+				  var target = $(this.hash);
+				  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+				  if (target.length) {
+				    $('html, body').animate({
+				      scrollTop: target.offset().top - 50
+				    }, 1000);
+				    return false;
+				  }
+				}
+			});
+		});
+
 		// BEHAVIOR FOR NEWSLETTER FORM
 		$('#mc_embed_signup form').submit(function(event) {
 			event.preventDefault();
@@ -211,7 +252,7 @@
 		        },
 
 		        success: function(data){
-		        	console.log(data);
+
 		            if (data.result == "error") {
 		                if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
 		                    $('#mc_embed_signup .section-subtext').text('Sorry, this email has already been subscribed.').css({color: 'red'});
