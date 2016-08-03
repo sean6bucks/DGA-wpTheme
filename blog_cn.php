@@ -59,7 +59,7 @@
 	</div>
 </section>
 <?php endif; ?>
-<section id="blog-posts">
+<section id="blog-posts" class="<? if(CFS()->get( 'chinese_page' )){ echo 'cn-blog-posts' ; }?>">
 	<div class="content-wrapper">
 		<div class="latest-posts">
 			<h2 class="section-headline"><?php echo CFS()->get( 'latest_posts_headline_cn', $blogPage->ID ); ?></h2>
@@ -69,7 +69,7 @@
 			    <?php get_template_part('pagination'); ?>
 			</div>
 		</div>
-		<div class="blog-sidebar">
+		<!-- <div class="blog-sidebar">
 			<div class="category-block">
 				<h3 class="section-headline"><?php echo CFS()->get( 'categories_headline_cn', $blogPage->ID ); ?></h3>
 				<ul class="sidebar-list"><?php wp_list_categories (array(
@@ -95,6 +95,6 @@
 				<h3 class="section-headline"><?php echo CFS()->get( 'instagram_headline_cn', $blogPage->ID ); ?></h3>
 				<?php echo wdi_feed(array('id'=>'2')); ?>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </section>
