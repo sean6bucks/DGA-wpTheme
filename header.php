@@ -136,9 +136,9 @@
 						<li class="nav-item">
 							<a href="/cn/blog"><?php echo CFS()->get( 'blog_cn', $indexPage->ID ); ?></a>
 						</li>
-						<li class="nav-item">
+						<!-- <li class="nav-item">
 							<a href="http://www.dragonadventureschina.com"><?php echo CFS()->get( 'dragon_adventures_cn', $indexPage->ID ); ?></a>
-						</li>
+						</li> -->
 						<li class="nav-item">
 							<a onclick="switchLanguage();">EN</a>
 						</li>
@@ -166,9 +166,9 @@
 							<li class="nav-item">
 								<a href="/cn/blog"><?php echo CFS()->get( 'blog_cn', $indexPage->ID ); ?></a>
 							</li>
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a href="http://www.dragonadventureschina.com"><?php echo CFS()->get( 'dragon_adventures_cn', $indexPage->ID ); ?></a>
-							</li>
+							</li> -->
 							<li class="nav-item">
 								<a onclick="switchLanguage();">EN</a>
 							</li>
@@ -212,7 +212,7 @@
 						</li>
 						<?php endif; ?>
 						<li class="nav-item"><a href="/blog"><?php echo CFS()->get( 'blog', $indexPage->ID ); ?></a></li>
-						<li class="nav-item"><a href="http://www.dragonadventureschina.com"><?php echo CFS()->get( 'dragon_adventures', $indexPage->ID ); ?></a></li>
+						<!-- <li class="nav-item"><a href="http://www.dragonadventureschina.com"><?php echo CFS()->get( 'dragon_adventures', $indexPage->ID ); ?></a></li> -->
 						<li class="nav-item">
 							<a onclick="switchLanguage('cn');">中文</a>
 						</li>
@@ -244,9 +244,9 @@
 						<li class="nav-item">
 							<a href="/blog"><?php echo CFS()->get( 'blog', $indexPage->ID ); ?></a>
 						</li>
-						<li class="nav-item">
+						<!-- <li class="nav-item">
 							<a href="http://www.dragonadventureschina.com"><?php echo CFS()->get( 'dragon_adventures', $indexPage->ID ); ?></a>
-						</li>
+						</li> -->
 						<li class="nav-item">
 							<a onclick="switchLanguage('cn');">中文</a>
 						</li>
@@ -274,9 +274,9 @@
 							<li class="nav-item">
 								<a href="/blog"><?php echo CFS()->get( 'blog', $indexPage->ID ); ?></a>
 							</li>
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a href="http://www.dragonadventureschina.com"><?php echo CFS()->get( 'dragon_adventures', $indexPage->ID ); ?></a>
-							</li>
+							</li> -->
 							<li class="nav-item">
 								<a onclick="switchLanguage('cn');">中文</a>
 							</li>

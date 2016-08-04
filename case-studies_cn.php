@@ -48,7 +48,7 @@ endif; ?>
 			$clients = CFS()->get( 'clients', $studyPage->ID );
 			foreach ( $clients as $key=>$client ) { ?>
 			<div class="client-item">
-				<img class="client-logo" src='<?php echo $client['client_logo_cn'] ?>'>
+				<img class="client-logo" src='<?php echo $client['client_logo'] ?>'>
 			</div>
 			<?php } ?>
 		</div>
